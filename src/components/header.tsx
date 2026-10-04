@@ -1,0 +1,120 @@
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import { navigation, site } from "@/content/site";
+export function Header() {
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const path = usePathname();
+  const menuRef = useRef<HTMLElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    const listener = () => setScrolled(window.scrollY > 24);
+    listener();
+    window.addEventListener("scroll", listener, { passive: true });
+    return () => window.removeEventListener("scroll", listener);
+  }, []);
+  useEffect(() => {
+    if (!open) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const closeAtDesktop = () => {
+      if (window.innerWidth > 1000) setOpen(false);
+    };
+    const handler = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
+      if (event.key === "Tab") {
+        const links = Array.from(
+          menuRef.current?.querySelectorAll<HTMLAnchorElement>("a") || [],
+        );
+        const first = toggleRef.current,
+          last = links[links.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
+      }
+    };
+    document.addEventListener("keydown", handler);
+    window.addEventListener("resize", closeAtDesktop);
+    return () => {
+      document.body.style.overflow = previous;
+      document.removeEventListener("keydown", handler);
+      window.removeEventListener("resize", closeAtDesktop);
+    };
+  }, [open]);
+  return (
+    <header
+      className={`site-header ${scrolled ? "is-scrolled" : ""} ${open ? "menu-is-open" : ""}`}
+    >
+      <div className="header-inner">
+        <Link
+          href="/"
+          className="wordmark"
+          aria-label={`${site.name} home`}
+          onClick={() => setOpen(false)}
+        >
+          <span className="brand-mark" aria-hidden="true">
+            <i />
+            <i />
+            <i />
+            <i />
+          </span>
+          {site.name}
+        </Link>
+        <nav className="desktop-nav" aria-label="Main navigation">
+          {navigation.map((item) => (
+            <Link
+              href={item.href}
+              key={item.href}
+              aria-current={path.startsWith(item.href) ? "page" : undefined}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+        <Link href="/events" className="nav-cta">
+          Join the next one <span aria-hidden="true">↗</span>
+        </Link>
+        <button
+          className="menu-toggle"
+          ref={toggleRef}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          onClick={() => setOpen(!open)}
+        >
+          <span />
+          <span />
+        </button>
+      </div>
+      <nav
+        id="mobile-menu"
+        ref={menuRef}
+        className="mobile-menu"
+        aria-label="Mobile navigation"
+        inert={!open}
+        aria-hidden={!open}
+      >
+        <p className="eyebrow">Good people. Better rooms.</p>
+        {navigation.map((item) => (
+          <Link href={item.href} key={item.href} onClick={() => setOpen(false)}>
+            {item.label}
+            <span aria-hidden="true">↗</span>
+          </Link>
+        ))}
+        <Link href="/speak" onClick={() => setOpen(false)}>
+          Speak at an event<span aria-hidden="true">↗</span>
+        </Link>
+        <p className="eyebrow mobile-location">Toronto, ON · Est. 2026</p>
+      </nav>
+    </header>
+  );
+}
