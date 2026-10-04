@@ -24,15 +24,17 @@ In the Worker's **Settings → Build**, use the repository root and production b
 
 | Setting | Value |
 | --- | --- |
-| Build command | `npm run build:cloudflare` |
+| Build command | Leave empty; the deploy command builds the app |
 | Deploy command | `npm run deploy:cloudflare` |
 | Non-production branch deploy command, if enabled | `npm run upload:cloudflare` |
+
+Both deployment scripts build Next.js and the OpenNext Worker before publishing. Replace the default `npx wrangler deploy` command with the script above: Wrangler detects OpenNext but does not create the compiled OpenNext config. A plain `npm run build` also produces only the Next.js output, which is insufficient for Workers. If you see “Could not find compiled Open Next config,” check that Cloudflare is using the exact deploy command above and deploying the latest `main` commit.
 
 Set `NEXT_PUBLIC_SITE_URL` to the actual HTTPS website origin in the **build variables**, then rebuild. Leave `NEXT_PUBLIC_DEMO_MODE=true` until real content is ready. These public values are compiled into the app, so changing runtime variables alone will not update them.
 
 Add `FORM_WEBHOOK_URL` and, if required by your provider, `FORM_WEBHOOK_TOKEN` as **runtime secrets** under Settings → Variables & Secrets. Wrangler already sets `FORM_STORAGE=webhook`; Workers cannot use the local file adapter for durable submissions. Until a provider is configured, forms return an honest delivery error. Never commit webhook credentials.
 
-For a local Workers preview, run `npm run preview:cloudflare`. To deploy from an authenticated terminal, run `npm run build:cloudflare` followed by `npm run deploy:cloudflare`. The configuration uses Cloudflare Images for `next/image` optimization and does not require an R2 bucket. See the [OpenNext setup guide](https://opennext.js.org/cloudflare/get-started) for the adapter's binding requirements.
+For a local Workers preview, run `npm run preview:cloudflare`. To build and deploy from an authenticated terminal, run `npm run deploy:cloudflare`. To check the complete build and deployment packaging without publishing, run `npm run deploy:cloudflare -- --dry-run`. The configuration uses Cloudflare Images for `next/image` optimization and does not require an R2 bucket. See the [OpenNext setup guide](https://opennext.js.org/cloudflare/get-started) for the adapter's binding requirements.
 
 ## Content and configuration
 
