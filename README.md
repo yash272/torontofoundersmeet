@@ -16,6 +16,24 @@ npm run dev
 
 Open http://localhost:3000. `npm run build && npm start` runs the production build. `npm run typecheck`, `npm run lint`, and `npm test` run the checks.
 
+## Cloudflare Workers deployment
+
+The repository includes an explicit OpenNext configuration for the Worker **`torontofoundersmeet`**. Keep `wrangler.jsonc` → `name` and `services` → `WORKER_SELF_REFERENCE` → `service` identical to the Worker name in Cloudflare. The public brand remains Founders & Pitchers; it does not need to match the infrastructure name. A mismatch here causes Cloudflare error 10143.
+
+In the Worker's **Settings → Build**, use the repository root and production branch `main`:
+
+| Setting | Value |
+| --- | --- |
+| Build command | `npm run build:cloudflare` |
+| Deploy command | `npm run deploy:cloudflare` |
+| Non-production branch deploy command, if enabled | `npm run upload:cloudflare` |
+
+Set `NEXT_PUBLIC_SITE_URL` to the actual HTTPS website origin in the **build variables**, then rebuild. Leave `NEXT_PUBLIC_DEMO_MODE=true` until real content is ready. These public values are compiled into the app, so changing runtime variables alone will not update them.
+
+Add `FORM_WEBHOOK_URL` and, if required by your provider, `FORM_WEBHOOK_TOKEN` as **runtime secrets** under Settings → Variables & Secrets. Wrangler already sets `FORM_STORAGE=webhook`; Workers cannot use the local file adapter for durable submissions. Until a provider is configured, forms return an honest delivery error. Never commit webhook credentials.
+
+For a local Workers preview, run `npm run preview:cloudflare`. To deploy from an authenticated terminal, run `npm run build:cloudflare` followed by `npm run deploy:cloudflare`. The configuration uses Cloudflare Images for `next/image` optimization and does not require an R2 bucket. See the [OpenNext setup guide](https://opennext.js.org/cloudflare/get-started) for the adapter's binding requirements.
+
 ## Content and configuration
 
 - `src/content/site.ts`: the single brand name, navigation, homepage copy, FAQs, benefits, partner offerings, and social profiles.

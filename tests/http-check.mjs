@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
-const base = "http://localhost:3000";
+const base = process.env.TEST_BASE_URL || "http://localhost:3000";
+const origin = process.env.TEST_FORM_ORIGIN || base;
 const paths = [
   "/",
   "/events",
@@ -43,7 +44,7 @@ assert.equal((await fetch(base + "/events/not-an-event")).status, 404);
 const post = (body) =>
   fetch(base + "/api/submissions", {
     method: "POST",
-    headers: { "Content-Type": "application/json", Origin: base },
+    headers: { "Content-Type": "application/json", Origin: origin },
     body: JSON.stringify(body),
   });
 assert.equal(
