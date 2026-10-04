@@ -12,11 +12,11 @@ export function EventTicket({ event }: { event: CommunityEvent }) {
     <article className="event-ticket">
       <div className="ticket-main">
         <div className="ticket-top">
-          <Eyebrow>In good company · Event {event.eventNumber}</Eyebrow>
+          <Eyebrow>Workshop · {event.eventNumber}</Eyebrow>
           <span className="ticket-state">
             <i aria-hidden="true" />
             {event.isDemo
-              ? "A preview of what’s next"
+              ? "Sample event"
               : eventState(event) === "sold-out"
                 ? "Room is full"
                 : "Applications open"}
@@ -25,12 +25,6 @@ export function EventTicket({ event }: { event: CommunityEvent }) {
         <h3>{event.title}</h3>
         <p className="ticket-description">{event.subtitle}</p>
         <div className="ticket-speaker">
-          <span className="speaker-monogram" aria-hidden="true">
-            {event.speakerName
-              .split(" ")
-              .map((p) => p[0])
-              .join("")}
-          </span>
           <div>
             <strong>{event.speakerName}</strong>
             <span>
@@ -53,12 +47,9 @@ export function EventTicket({ event }: { event: CommunityEvent }) {
           <p>{event.neighbourhood}, Toronto</p>
         </div>
         <ButtonLink href={`/events/${event.slug}`} variant="dark">
-          Explore the night
+          Event details
         </ButtonLink>
-        <span className="ticket-code" aria-hidden="true">
-          ||| || ||| | || |||| || ||| ||
-        </span>
-        <span className="eyebrow">Admit one good conversation</span>
+        <span className="eyebrow">Workshop / Questions / Drinks</span>
       </div>
     </article>
   );

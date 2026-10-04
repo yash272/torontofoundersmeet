@@ -11,9 +11,7 @@ export default function PrivacyPage() {
     <>
       <section className="page-intro container">
         <Eyebrow>Your information</Eyebrow>
-        <h1>
-          Keep it <em>considered.</em>
-        </h1>
+        <h1>Privacy.</h1>
         <p>Privacy information for the {site.name} website.</p>
       </section>
       <article className="section container privacy-content">

@@ -7,15 +7,15 @@ export function Newsletter() {
     <section className="newsletter" id="newsletter">
       <div className="container newsletter-inner">
         <div>
-          <Eyebrow>The occasional good email</Eyebrow>
+          <Eyebrow>Get the invitation</Eyebrow>
           <h2>
-            The good stuff,
+            See you at
             <br />
-            <em>before LinkedIn gets it.</em>
+            the next one.
           </h2>
           <p>
-            Upcoming events, speaker announcements and the most useful lessons
-            from the room.
+            New dates, speaker announcements, and notes worth keeping. We’ll
+            email when there’s something to share.
           </p>
         </div>
         <SubmissionForm type="newsletter" compact />
@@ -81,7 +81,7 @@ export function Footer() {
           <span>
             © {new Date().getFullYear()} {site.name}
           </span>
-          <span>Est. {site.established} · Always a work in progress.</span>
+          <span>Est. {site.established}</span>
           <Link href="/privacy">Privacy</Link>
         </div>
         {site.demo && (

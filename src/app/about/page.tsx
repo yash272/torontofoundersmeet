@@ -21,7 +21,7 @@ export default function AboutPage() {
         <h1>
           The best part
           <br />
-          was always <em>afterward.</em>
+          was always <span>afterward.</span>
         </h1>
         <p>So we decided to build the whole evening around it.</p>
         <Photo
@@ -41,7 +41,7 @@ export default function AboutPage() {
             <br />
             the room.
             <br />
-            <em>More being in it.</em>
+            <span>More being in it.</span>
           </h2>
         </div>
         <div className="prose">
@@ -77,7 +77,7 @@ export default function AboutPage() {
           <h2>
             Keep it small.
             <br />
-            <em>Make it matter.</em>
+            <span>Make it matter.</span>
           </h2>
           <div className="principle-grid">
             {principles.map(([title, body]) => (
@@ -99,7 +99,7 @@ export default function AboutPage() {
           <h2>
             Toronto is better
             <br />
-            <em>when we show up.</em>
+            <span>when we show up.</span>
           </h2>
           <p>
             King West to Kensington. Ossington to the east end. Different

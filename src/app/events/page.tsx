@@ -19,7 +19,7 @@ export default function EventsPage() {
         <h1>
           A good night.
           <br />
-          <em>A better next day.</em>
+          <span>A better next day.</span>
         </h1>
         <div className="intro-bottom">
           <p>
@@ -49,7 +49,7 @@ export default function EventsPage() {
               <>
                 The lessons
                 <br />
-                <em>live on.</em>
+                <span>live on.</span>
               </>
             }
           >

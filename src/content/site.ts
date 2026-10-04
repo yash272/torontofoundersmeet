@@ -17,24 +17,30 @@ export const navigation = [
   { label: "Partners", href: "/partners" },
 ];
 export const home = {
-  eyebrow: "Toronto · For founders, operators & builders",
-  intro: "Someone who’s done it before tells you what actually worked.",
+  eyebrow: "Toronto · Founder workshops, after work",
+  headline: ["A good reason", "to close your", "laptop."],
+  intro: "Meet the people behind the work.",
   description:
-    "Intimate workshops with Toronto’s best founders and operators. One lesson. 45 minutes. Then drinks.",
+    "A founder shares something they learned by doing it. You ask the questions you can’t ask a podcast. Then we get another drink.",
+  formatTitle: "Here’s your evening.",
+  formatDescription:
+    "A little structure at the start. Plenty of time to see where the conversation goes.",
   format: [
     {
       number: "01",
-      title: "Show up.",
+      title: "Settle in.",
       time: "7:00 PM",
-      text: "Grab a drink. Find your people. Meet builders without the name-tag-networking energy.",
+      text: "Come straight from work. Grab whatever you’re drinking and introduce yourself to someone. Coming alone is completely normal.",
+      detail: "No name tags. No elevator pitches to rehearse.",
       image: "/images/after-hours.jpg",
       alt: "Atmosphere reference: the interior of a warmly lit neighbourhood bar",
     },
     {
       number: "02",
-      title: "Learn something.",
+      title: "Get into it.",
       time: "7:30 PM",
-      text: "One founder or operator. One lesson from doing the work. The honest version, including what went wrong.",
+      text: "One founder or operator walks through a specific problem: what they tried, what failed, and what they’d do again. There’s time for your questions.",
+      detail: "One practical lesson, in about 45 minutes.",
       image: "/images/the-lesson.jpg",
       alt: "Atmosphere reference: a small audience listening to a speaker",
     },
@@ -42,13 +48,14 @@ export const home = {
       number: "03",
       title: "Stay awhile.",
       time: "8:15 PM — LATE",
-      text: "Ask the follow-up question. Challenge an idea. Have the conversation you’ll still be thinking about tomorrow.",
+      text: "The scheduled part is over. Ask the speaker a follow-up, compare notes with someone building something, or pull up a chair for another round.",
+      detail: "Stay for one drink or until the conversation runs out.",
       image: "/images/the-room.jpg",
       alt: "Atmosphere reference: friends sharing a conversation over dinner",
     },
   ],
   manifesto:
-    "The most useful startup lessons rarely come from polished panels. They come from someone telling you what went wrong, what unexpectedly worked, and what they wish they’d known. We make room for those conversations.",
+    "How did you find that first customer? Why did that hire go wrong? What changed your mind about the product? These are the conversations we want to have. So we’re giving them a whole evening.",
   people: [
     "Founders",
     "Operators",
@@ -62,23 +69,23 @@ export const home = {
 };
 export const membershipBenefits = [
   [
-    "A seat with your name on it.",
+    "Reserved event access",
     "Guaranteed event access, with member places reserved in advance.",
   ],
   [
-    "Build alongside someone.",
+    "Monthly founder coworking",
     "Monthly founder coworking, with room for an actual conversation.",
   ],
   [
-    "Keep the conversation going.",
+    "A private community",
     "A private community for questions, introductions and honest feedback.",
   ],
   [
-    "A smaller table.",
+    "Small dinners and roundtables",
     "Intimate dinners, roundtables and sessions just for members.",
   ],
   [
-    "First to know. First in.",
+    "Early access to limited sessions",
     "Early access to our most limited-capacity gatherings.",
   ],
 ];

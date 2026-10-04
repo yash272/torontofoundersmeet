@@ -6,7 +6,7 @@ export default function ErrorPage({ reset }: { reset: () => void }) {
       <h1>
         Let’s try
         <br />
-        <em>that again.</em>
+        <span>that again.</span>
       </h1>
       <p>We couldn’t load this page. Please try once more.</p>
       <button className="button button-dark" onClick={reset}>

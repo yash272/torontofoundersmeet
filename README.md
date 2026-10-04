@@ -23,7 +23,9 @@ Open http://localhost:3000. `npm run build && npm start` runs the production bui
 - `src/lib/forms.ts`: shared server/client validation and form messages.
 - `src/lib/submissions.ts`: the submission provider boundary.
 - `src/components/submission-form.tsx`: field definitions and accessible loading, validation, error and success states.
-- `src/app/globals.css`: design tokens, the editorial grid and independently composed mobile layouts.
+- `src/app/globals.css`: shared typography, design tokens and interior page layouts.
+- `src/app/home.css`: the homepage programme, photographic compositions and mobile layouts.
+- `src/components/evening-schedule.tsx`: the interactive evening programme, with keyboard-accessible tabs and reduced-motion support.
 
 Routes: `/`, `/events`, `/events/[slug]`, `/past-talks`, `/about`, `/speak`, `/membership`, `/partners`, `/contact`, `/privacy`. Past event URLs automatically render an editorial recap. Event times use `America/Toronto`; store full ISO timestamps with the correct offset for the date (EST or EDT).
 

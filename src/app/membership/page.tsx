@@ -18,7 +18,7 @@ export default function MembershipPage() {
             <br />
             who keep
             <br />
-            <em>coming back.</em>
+            <span>coming back.</span>
           </h1>
           <p>
             The night ends. The group chat doesn’t have to. A little more
@@ -35,7 +35,7 @@ export default function MembershipPage() {
           <div className="pass-title">
             Good company.
             <br />
-            <em>On repeat.</em>
+            <span>On repeat.</span>
           </div>
           <div className="pass-bottom">
             <span>Toronto, ON</span>
@@ -60,7 +60,7 @@ export default function MembershipPage() {
             <h2>
               Your kind of room.
               <br />
-              <em>A little more often.</em>
+              <span>A little more often.</span>
             </h2>
             <p>
               Membership is taking shape. Join the waitlist and we’ll share the

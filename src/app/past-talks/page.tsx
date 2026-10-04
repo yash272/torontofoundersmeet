@@ -18,7 +18,7 @@ export default function PastTalksPage() {
         <h1>
           Some things are
           <br />
-          <em>worth keeping.</em>
+          <span>worth keeping.</span>
         </h1>
         <p>
           The notes you’d want a friend to send you. Useful lessons, honest

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 import { site } from "@/content/site";
-export const alt = `${site.name} — Better rooms. Toronto.`;
+export const alt = `${site.name} — Founder workshops in Toronto`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export default function Image() {
@@ -32,13 +32,14 @@ export default function Image() {
           display: "flex",
           flexDirection: "column",
           fontSize: 100,
+          fontWeight: 700,
           letterSpacing: "-6px",
           lineHeight: 1,
         }}
       >
-        <span>Good people.</span>
-        <span>Useful lessons.</span>
-        <span style={{ color: "#B62D23" }}>Better rooms.</span>
+        <span>A good reason</span>
+        <span>to close your</span>
+        <span style={{ color: "#B62D23" }}>laptop.</span>
       </div>
       <div style={{ display: "flex", fontSize: 20 }}>
         One lesson. 45 minutes. Then drinks. ↗

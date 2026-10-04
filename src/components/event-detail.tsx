@@ -184,7 +184,7 @@ export function UpcomingEvent({ event }: { event: CommunityEvent }) {
             <h2>
               Why this
               <br />
-              <em>conversation matters.</em>
+              <span>conversation matters.</span>
             </h2>
             <p>{event.description}</p>
           </section>
@@ -241,7 +241,7 @@ export function UpcomingEvent({ event }: { event: CommunityEvent }) {
             <h2>
               Somewhere worth
               <br />
-              <em>spending an evening.</em>
+              <span>spending an evening.</span>
             </h2>
             <p>
               {event.venue}. {event.address}.
@@ -296,7 +296,7 @@ export function UpcomingEvent({ event }: { event: CommunityEvent }) {
             <h2>
               The next good room
               <br />
-              <em>is worth waiting for.</em>
+              <span>is worth waiting for.</span>
             </h2>
             <TextLink href="/events">Explore the calendar</TextLink>
           </div>
@@ -319,7 +319,7 @@ export function EventRecap({ event }: { event: CommunityEvent }) {
             <h2>
               The notes are
               <br />
-              <em>on their way.</em>
+              <span>on their way.</span>
             </h2>
           </div>
           <div className="prose">
@@ -405,7 +405,7 @@ export function EventRecap({ event }: { event: CommunityEvent }) {
               <>
                 More from
                 <br />
-                <em>the room.</em>
+                <span>the room.</span>
               </>
             }
           >

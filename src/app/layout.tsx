@@ -6,7 +6,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(site.origin),
   title: {
-    default: `${site.name} — Better rooms. Toronto.`,
+    default: `${site.name} — Founder workshops in Toronto`,
     template: `%s — ${site.name}`,
   },
   description: site.description,
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
       ? { index: false, follow: false }
       : { index: true, follow: true },
   openGraph: {
-    title: `${site.name} — Better rooms. Toronto.`,
+    title: `${site.name} — Founder workshops in Toronto`,
     description: site.description,
     url: "/",
     type: "website",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — Better rooms. Toronto.`,
+    title: `${site.name} — Founder workshops in Toronto`,
     description: site.description,
     images: ["/opengraph-image"],
   },
@@ -42,13 +42,6 @@ export default function RootLayout({
   return (
     <html lang="en-CA">
       <head>
-        <link
-          rel="preload"
-          href="/fonts/instrument-serif.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
         <link
           rel="preload"
           href="/fonts/manrope.woff2"

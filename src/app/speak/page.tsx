@@ -29,7 +29,7 @@ export default function SpeakPage() {
           <br />
           Just something
           <br />
-          <em>worth sharing.</em>
+          <span>worth sharing.</span>
         </h1>
         <p>
           Learned something the hard way? Someone in the room probably needs to
@@ -42,7 +42,7 @@ export default function SpeakPage() {
           <h2>
             Teach the thing
             <br />
-            <em>you wish you’d known.</em>
+            <span>you wish you’d known.</span>
           </h2>
           <p>
             You don’t need a speaking reel or a rehearsed origin story. You need

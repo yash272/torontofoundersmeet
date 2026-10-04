@@ -12,7 +12,7 @@ export default function ContactPage() {
       <section className="page-intro container">
         <Eyebrow>The conversation starts here</Eyebrow>
         <h1>
-          Come say <em>hello.</em>
+          Come say <span>hello.</span>
         </h1>
         <p>
           A lesson to share, a room to offer, or just a curiosity about what’s

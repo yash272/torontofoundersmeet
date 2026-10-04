@@ -61,12 +61,6 @@ export function Header() {
           aria-label={`${site.name} home`}
           onClick={() => setOpen(false)}
         >
-          <span className="brand-mark" aria-hidden="true">
-            <i />
-            <i />
-            <i />
-            <i />
-          </span>
           {site.name}
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
@@ -103,7 +97,7 @@ export function Header() {
         inert={!open}
         aria-hidden={!open}
       >
-        <p className="eyebrow">Good people. Better rooms.</p>
+        <p className="eyebrow">Founders & operators, off the clock.</p>
         {navigation.map((item) => (
           <Link href={item.href} key={item.href} onClick={() => setOpen(false)}>
             {item.label}

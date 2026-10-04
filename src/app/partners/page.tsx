@@ -15,7 +15,7 @@ export default function PartnersPage() {
         <h1>
           Be part of
           <br />
-          <em>what happens next.</em>
+          <span>what happens next.</span>
         </h1>
         <p>
           We work with a small number of companies that genuinely want to
@@ -44,7 +44,7 @@ export default function PartnersPage() {
             <h2>
               A good fit
               <br />
-              <em>comes first.</em>
+              <span>comes first.</span>
             </h2>
             <p>
               Partnership places are limited so the room stays focused on the
