@@ -31,6 +31,8 @@ details[open] > summary .disclosure-symbol {
 .event-disclosure {
   border: 1px solid var(--rule);
   border-top: 0;
+  border-radius: 0 0 12px 12px;
+  background: var(--surface);
   padding-inline: 32px;
 }
 .inline-event-body {
@@ -113,12 +115,12 @@ details[open] > summary .disclosure-symbol {
 .story-disclosure > summary {
   justify-content: flex-start;
   width: fit-content;
-  border-bottom: 1px solid #aaa69d;
+  border-bottom: 1px solid var(--muted);
 }
 .inline-story {
   padding: 28px;
   margin-top: 22px;
-  background: var(--paper);
+  background: var(--surface);
   color: var(--ink);
 }
 .inline-story > p {
@@ -204,7 +206,7 @@ details[open] > summary .disclosure-symbol {
 }
 .inline-try {
   padding: 24px;
-  background: #e7e2d7;
+  background: #17131f10;
   margin-block: 28px;
 }
 .inline-try .eyebrow {
@@ -218,13 +220,14 @@ details[open] > summary .disclosure-symbol {
 }
 .application-disclosure {
   margin-top: 26px;
+  width: 100%;
 }
 .application-disclosure > summary {
   border-bottom: 1px solid currentColor;
 }
 .inline-form-panel {
   color: var(--ink);
-  background: var(--paper);
+  background: var(--surface);
   padding: 26px;
   margin-top: 24px;
   min-width: 0;
@@ -267,6 +270,7 @@ details[open] > summary .disclosure-symbol {
 }
 .inline-partners {
   border-bottom: 1px solid var(--rule);
+  margin-top: 28px;
 }
 .partner-disclosure > summary {
   padding-block: 28px;
@@ -322,13 +326,13 @@ details[open] > summary .disclosure-symbol {
 }
 .footer-details {
   margin-top: 40px;
-  border-top: 1px solid #45453f;
+  border-top: 1px solid var(--rule);
 }
 .footer-details .inline-disclosure {
-  border-bottom: 1px solid #45453f;
+  border-bottom: 1px solid var(--rule);
 }
 .footer-details summary:focus-visible {
-  outline-color: var(--paper);
+  outline-color: var(--accent);
 }
 .inline-contact {
   padding-block: 15px 30px;
@@ -339,7 +343,7 @@ details[open] > summary .disclosure-symbol {
 }
 .inline-contact p {
   flex-basis: 100%;
-  color: #aaa69d;
+  color: var(--muted);
 }
 .inline-contact a {
   border-bottom: 1px solid #73736b;
@@ -356,7 +360,7 @@ details[open] > summary .disclosure-symbol {
 .inline-privacy p {
   font-size: 13px;
   margin-bottom: 26px;
-  color: #c5c2ba;
+  color: var(--muted);
 }
 .inline-privacy a {
   font-size: 13px;

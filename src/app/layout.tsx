@@ -3,6 +3,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { site } from "@/content/site";
 import "./globals.css";
+import "./home.css";
 import "./single-page.css";
 export const metadata: Metadata = {
   metadataBase: new URL(site.origin),
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
   },
 };
 export const viewport: Viewport = {
-  themeColor: "#F3F0E8",
+  themeColor: "#0D0B11",
   width: "device-width",
   initialScale: 1,
 };

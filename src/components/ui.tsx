@@ -29,7 +29,7 @@ export function ButtonLink({
 }: {
   href: string;
   children: ReactNode;
-  variant?: "dark" | "red" | "outline" | "light";
+  variant?: "dark" | "accent" | "outline" | "light";
   className?: string;
   external?: boolean;
 }) {

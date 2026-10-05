@@ -10,9 +10,9 @@ export default function Image() {
         width: "100%",
         height: "100%",
         display: "flex",
-        background: "#F3F0E8",
+        background: "#0D0B11",
         padding: "65px 75px",
-        color: "#111111",
+        color: "#F5F1FC",
         flexDirection: "column",
         justifyContent: "space-between",
       }}
@@ -38,7 +38,7 @@ export default function Image() {
         }}
       >
         <span>Startup lessons.</span>
-        <span style={{ color: "#B62D23" }}>Toronto nights.</span>
+        <span style={{ color: "#AF91FF" }}>Toronto nights.</span>
       </div>
       <div style={{ display: "flex", fontSize: 20 }}>
         Founder workshops in Toronto bars. 45 minutes, then drinks.

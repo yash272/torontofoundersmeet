@@ -1,9 +1,10 @@
 // Homepage copy is kept together; stock photos are not actual community documentation.
 export const home = {
-  eyebrow: "For the people building Toronto",
+  eyebrow: "Made in Toronto. Meet in Toronto.",
   headline: ["Startup lessons.", "Toronto nights."],
+  subhead: "One useful lesson. Then a proper night out.",
   description:
-    "Small founder workshops in Toronto bars. One useful lesson, 45 minutes, then drinks with people building things.",
+    "Small founder workshops in Toronto bars. Learn from someone who’s done it, then talk shop over drinks.",
   action: "Find your next night",
   secondary: "How it works",
   facts: ["One founder", "45 minutes", "Then drinks"],

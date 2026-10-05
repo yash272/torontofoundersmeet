@@ -1,7 +1,7 @@
 import { Accordion } from "@/components/accordion";
 import { EveningSchedule } from "@/components/evening-schedule";
 import { Newsletter } from "@/components/footer";
-import { Arrow, ButtonLink, Eyebrow, Photo, TextLink } from "@/components/ui";
+import { ButtonLink, Eyebrow, Photo, TextLink } from "@/components/ui";
 import { faqs } from "@/content/site";
 import { home } from "@/content/home";
 import {
@@ -9,6 +9,7 @@ import {
   OurStory,
 } from "@/components/community-sections";
 import { EventSchema, InlineEvent, RecapBody } from "@/components/inline-event";
+import { HeroPasses } from "@/components/hero-passes";
 import { PageAnchors } from "@/components/page-anchors";
 import {
   upcomingEvents,
@@ -17,7 +18,6 @@ import {
   formatTime,
   eventState,
 } from "@/content/events";
-import "./home.css";
 
 export const dynamic = "force-dynamic";
 
@@ -45,9 +45,10 @@ export default function HomePage() {
               </span>
             ))}
           </h1>
+          <p className="night-subhead">{home.subhead}</p>
           <p className="night-description">{home.description}</p>
           <div className="night-actions">
-            <ButtonLink href="#next-up" variant="red">
+            <ButtonLink href="#next-up" variant="accent">
               {home.action}
             </ButtonLink>
             <a href="#the-evening" className="night-secondary">
@@ -56,29 +57,7 @@ export default function HomePage() {
             </a>
           </div>
         </div>
-        <figure className="night-collage">
-          {/* Stock atmosphere placeholder. Replace with an approved Toronto community photograph. */}
-          <Photo
-            src="/images/conversations.jpg"
-            alt="Illustrative photograph of a conversation over drinks at a neighbourhood bar"
-            className="night-people"
-            priority
-            sizes="(max-width: 760px) 100vw, 48vw"
-          />
-          <div className="night-city-inset">
-            <Photo
-              src="/images/toronto-streetcar.jpg"
-              alt="A red streetcar on a downtown Toronto street, photographed by Nathalia Segato"
-              sizes="(max-width: 760px) 40vw, 20vw"
-            />
-            <span>
-              Meet you in Toronto. <Arrow diagonal />
-            </span>
-          </div>
-          <figcaption>
-            Bar photo: atmosphere reference · Toronto photo: Nathalia Segato
-          </figcaption>
-        </figure>
+        <HeroPasses />
       </section>
       <div className="night-formula" aria-label="The event format">
         <div className="container">

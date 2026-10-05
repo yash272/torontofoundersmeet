@@ -1,177 +1,361 @@
-/* Toronto gig-poster composition. Type and real places carry the identity. */
+/* A dark stage, physical event passes, and one unmistakably Toronto night. */
 .toronto-home h1,
 .toronto-home h2,
 .toronto-home h3 {
   font-family: var(--display);
   font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 0.98;
+}
+.toronto-home h1 {
   text-transform: uppercase;
-  letter-spacing: -0.02em;
-  line-height: 0.94;
-  text-wrap: initial;
 }
 .toronto-home h2 {
-  font-size: clamp(48px, 5.3vw, 78px);
+  font-size: clamp(48px, 5.6vw, 80px);
   white-space: pre-line;
-}
-.toronto-home .eyebrow {
-  font-size: 10px;
-  letter-spacing: 0.1em;
 }
 .toronto-home .text-link {
   font-size: 12px;
 }
-.toronto-home .button {
-  min-height: 53px;
-  font-size: 12px;
-}
 .night-section {
-  padding-block: 90px;
+  padding-block: 94px;
 }
 .night-hero {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6%;
-  padding-block: 35px 52px;
+  grid-template-columns: 1.04fr 1fr;
+  gap: 5%;
+  align-items: center;
+  padding-block: 72px 80px;
+  min-height: 690px;
 }
 .night-intro {
+  min-width: 0;
   position: relative;
   z-index: 2;
 }
 .night-intro > .eyebrow {
-  margin-bottom: 23px;
+  margin-bottom: 30px;
 }
 .local-line {
-  width: 25px;
-  height: 3px;
-  background: var(--red);
+  width: 17px;
+  height: 17px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  position: relative;
+}
+.local-line:after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  background: var(--accent);
+  border-radius: 50%;
 }
 .night-intro h1 {
-  font-size: clamp(85px, 8.5vw, 137px);
-  line-height: 0.84;
-  letter-spacing: -0.025em;
+  font-size: clamp(62px, 5.3vw, 88px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
 }
 .night-intro h1 > span {
   display: block;
+  white-space: nowrap;
 }
 .night-intro h1 > span + span {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 .night-red {
-  color: var(--red-text);
+  color: var(--accent);
+}
+.night-subhead {
+  font-size: clamp(17px, 1.5vw, 22px);
+  font-weight: 750;
+  line-height: 1.4;
+  margin-top: 28px;
+  max-width: 450px;
 }
 .night-description {
   font-size: 15px;
-  line-height: 1.65;
-  max-width: 355px;
-  margin-top: 26px;
+  line-height: 1.8;
+  max-width: 410px;
+  margin-top: 19px;
+  color: var(--muted);
 }
 .night-actions {
   display: flex;
   align-items: center;
   gap: 24px;
-  margin-top: 24px;
-}
-.night-actions .button {
-  gap: 35px;
-  padding-inline: 22px;
+  margin-top: 31px;
 }
 .night-secondary {
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 750;
   display: inline-flex;
-  gap: 14px;
+  gap: 18px;
   align-items: center;
-  min-height: 44px;
-  border-bottom: 1px solid var(--rule);
+  min-height: 48px;
+  border-bottom: 1px solid #786b8b;
 }
 .night-secondary:hover {
-  border-color: var(--ink);
+  color: var(--accent);
 }
-.night-collage {
+.hero-passes {
   position: relative;
-  margin-top: 4px;
-  margin-bottom: 27px;
+  aspect-ratio: 1.03;
+  width: 100%;
   min-width: 0;
+  font-size: clamp(9px, 1vw, 14px);
+  isolation: isolate;
 }
-.night-people {
-  height: 100%;
-  min-height: 520px;
-  margin-left: 30px;
-}
-.night-people img {
-  filter: saturate(0.7) contrast(1.04);
-  object-position: 43% center;
-}
-.night-city-inset {
+.pass-orbit {
   position: absolute;
-  width: 47%;
-  left: -23px;
-  bottom: 25px;
-  border: 7px solid var(--paper);
-  background: var(--paper);
+  inset: 12% 10%;
+  border: 1px solid #a989ff12;
+  border-radius: 50%;
+  transform: rotate(-20deg);
 }
-.night-city-inset .photo {
-  aspect-ratio: 1.22;
+.pass-orbit:after {
+  content: "";
+  position: absolute;
+  inset: 13px -10px;
+  border: 1px solid #a989ff12;
+  border-radius: 50%;
 }
-.night-city-inset img {
-  filter: saturate(0.75);
-  object-position: center 65%;
+.hero-pass {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  border-radius: 13px;
+  border: 1px solid #ffffff80;
+  box-shadow: 0 16px 32px #0005;
+  transition:
+    transform 280ms var(--ease),
+    box-shadow 280ms;
+  transform-origin: center;
 }
-.night-city-inset > span {
+.hero-pass:hover {
+  box-shadow: 0 22px 40px #0007;
+}
+.hero-pass:focus-visible {
+  outline-color: var(--lime);
+  z-index: 5;
+}
+.pass-label {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 8px 4px 1px;
-  font-size: 10px;
-  font-weight: 650;
+  gap: 8px;
+  font-size: 0.68em;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  line-height: 1.5;
 }
-.night-city-inset .arrow {
-  font-size: 18px;
+.pass-label > span {
+  font-size: 1.5em;
+  line-height: 1;
 }
-.night-collage figcaption {
-  position: absolute;
-  bottom: -26px;
+.hero-pass > strong {
+  font: 800 2.55em/0.95 var(--display);
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+}
+.city-pass {
+  left: 1%;
+  top: 23%;
+  width: 39%;
+  height: 64%;
+  background: #92d2e3;
+  color: #151323;
+  padding: 1.5em;
+  transform: rotate(-16deg);
+  z-index: 1;
+}
+.city-pass:hover {
+  transform: rotate(-12deg) translateY(-8px);
+}
+.city-pass .photo {
+  height: 42%;
+  margin: 1.1em -1.5em 1.2em;
+}
+.city-pass .photo img {
+  object-position: 50% 63%;
+  filter: saturate(0.6);
+}
+.city-pass > strong {
+  font-size: 2.2em;
+}
+.pass-fine {
+  font-size: 0.7em;
+  margin-top: auto;
+  padding-top: 1em;
+}
+.drinks-pass {
   right: 0;
-  font-size: 9px;
+  top: 11%;
+  width: 39%;
+  height: 65%;
+  background: var(--lime);
+  color: #17131f;
+  padding: 1.6em;
+  transform: rotate(16deg);
+  z-index: 1;
+}
+.drinks-pass:hover {
+  transform: rotate(12deg) translateY(-8px);
+}
+.drinks-pass > strong {
+  margin-top: 1.1em;
+}
+.drinks-pass > svg {
+  width: 65%;
+  height: auto;
+  margin: auto;
+  transform: rotate(-9deg);
+}
+.pass-bottom {
+  font-size: 0.8em;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-top: 1px solid #17131f55;
+  padding-top: 1em;
+  line-height: 1.5;
+}
+.lesson-pass {
+  left: 29%;
+  top: 9%;
+  width: 44%;
+  height: 79%;
+  background: #2c193d;
+  color: #e0c2ff;
+  padding: 1.7em 1.5em;
+  transform: rotate(-5deg);
+  z-index: 3;
+  border: 2px solid #bca0da;
+  outline: 5px solid #755185;
+  outline-offset: -8px;
+}
+.lesson-pass:hover {
+  transform: rotate(-2deg) translateY(-8px);
+}
+.lesson-pass .pass-label {
+  padding-bottom: 1.4em;
+  border-bottom: 1px solid #d8b7ff4a;
+  font-size: 0.58em;
+}
+.pass-microphone {
+  width: 3.2em;
+  margin: 1.4em auto 0.4em;
+}
+.pass-duration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.8;
+}
+.pass-duration > strong {
+  font: 800 10.7em/0.8 var(--display);
+  letter-spacing: -0.06em;
+  padding-right: 0.06em;
+}
+.pass-duration > span {
+  font-size: 0.78em;
+  letter-spacing: 0.35em;
+  margin-top: 1em;
+  font-weight: 800;
+}
+.pass-promise {
+  font-size: 0.65em;
+  text-align: center;
+  line-height: 1.5;
+  margin-top: 1.7em;
+}
+.pass-brand {
+  border-top: 1px solid #d8b7ff4a;
+  margin-top: auto;
+  padding-top: 1em;
+  font: 800 2em/0.95 var(--display);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.pass-brand > span {
+  display: block;
+  font: 600 0.27em/1.5 var(--sans);
+  letter-spacing: 0.12em;
+  margin-top: 1.1em;
+}
+.pass-sticker {
+  position: absolute;
+  right: 0;
+  bottom: 2%;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--coral);
+  color: #231520;
+  transform: rotate(10deg);
+  font-size: 0.8em;
+  font-weight: 850;
+  line-height: 1.35;
+  text-align: center;
+  text-transform: uppercase;
+}
+.pass-sticker > span {
+  font-size: 2.7em;
+  line-height: 1;
+  margin-top: 0.1em;
+}
+.pass-caption {
+  position: absolute;
+  bottom: -4%;
+  left: 4%;
   color: var(--muted);
+  font-size: 0.75em;
+  transform: rotate(-3deg);
 }
 .night-formula {
-  border-block: 1px solid var(--rule);
+  background: var(--accent);
+  color: #1c1428;
+  border-block: 1px solid #d6c2ff;
 }
 .night-formula > .container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1280px;
 }
 .night-formula > .container > span {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  flex: 1;
   gap: 20px;
-  font: 800 clamp(25px, 2.6vw, 38px)/1 var(--display);
+  padding: 19px 0;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  padding: 23px 0;
 }
-.night-formula small {
-  font: 600 10px/1 var(--sans);
-  color: var(--muted);
+.formula-arrow {
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 500;
 }
-.night-formula .formula-arrow {
-  color: var(--red-text);
-  margin-left: auto;
-  padding-right: 36px;
-  font-family: var(--sans);
-  font-size: 28px;
-}
-.night-formula > .container > span:last-child .formula-arrow {
-  padding-right: 0;
+.night-formula > .container > span:last-child {
+  flex: 0.7;
 }
 .night-section-heading {
   display: flex;
   justify-content: space-between;
   align-items: end;
   gap: 32px;
-  margin-bottom: 35px;
+  margin-bottom: 36px;
 }
 .night-section-heading .eyebrow {
-  margin-bottom: 15px;
+  margin-bottom: 17px;
 }
 .night-section-heading .text-link {
   align-self: flex-end;
@@ -179,12 +363,14 @@
 }
 .night-ticket {
   display: grid;
-  grid-template-columns: 1fr 290px;
-  color: var(--paper);
-  background: var(--ink);
+  grid-template-columns: 1fr 280px;
+  background: #1b1426;
+  border: 1px solid #645078;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
 }
 .night-ticket-main {
-  padding: 30px 42px 25px;
+  padding: 35px 40px 30px;
   min-width: 0;
 }
 .night-ticket-top {
@@ -194,76 +380,69 @@
   gap: 20px;
   font-size: 10px;
   letter-spacing: 0.1em;
+  color: #d5c0f5;
 }
 .night-event-state {
-  border: 1px solid #77736c;
+  border: 1px solid #80669a;
+  border-radius: 4px;
   padding: 5px 9px;
   font-size: 9px;
   white-space: nowrap;
 }
 .night-ticket h3 {
-  font-size: clamp(48px, 5.2vw, 80px);
-  max-width: 740px;
-  margin-block: 28px 16px;
+  font-size: clamp(45px, 5.2vw, 76px);
+  max-width: 710px;
+  margin-block: 27px 18px;
+  text-transform: uppercase;
 }
 .night-ticket-main > p {
-  color: #bbb7af;
   font-size: 14px;
+  color: var(--muted);
+  max-width: 570px;
 }
 .night-ticket-speaker {
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
   gap: 8px 12px;
-  margin-top: 34px;
+  margin-top: 30px;
 }
 .night-ticket-speaker > span:first-child {
   font-size: 9px;
-  color: #bbb7af;
+  color: var(--muted);
 }
 .night-ticket-speaker strong {
-  font-size: 14px;
+  font-size: 15px;
+  color: #d5bcfc;
   text-transform: uppercase;
 }
 .night-ticket-speaker > span:last-child {
   font-size: 11px;
-  color: #bbb7af;
+  color: var(--muted);
 }
 .night-ticket-location {
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  border-top: 1px solid #494640;
-  padding-top: 19px;
+  border-top: 1px solid #5e496f;
+  padding-top: 18px;
   margin-top: 25px;
-  font-size: 11px;
+  font-size: 12px;
 }
 .night-ticket-stub {
-  background: var(--red);
-  color: var(--ink);
-  padding: 30px 28px 22px;
-  border-left: 1px dashed #1118;
+  background: var(--lime);
+  color: #1a1720;
+  padding: 30px 27px 23px;
+  border-left: 1px dashed #1a172080;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
 }
-.night-ticket-stub:before,
-.night-ticket-stub:after {
-  content: "";
-  position: absolute;
-  left: -11px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--paper);
-}
-.night-ticket-stub:before {
-  top: -10px;
-}
-.night-ticket-stub:after {
-  bottom: -10px;
+.night-ticket-stub > .eyebrow {
+  color: #343e22;
+  font-size: 9px;
 }
 .night-ticket-stub time {
   display: flex;
@@ -276,24 +455,30 @@
   margin: 25px 0;
 }
 .night-ticket-stub time > span {
-  font-size: 34px;
+  font-size: 32px;
   margin-bottom: 8px;
 }
 .night-ticket-stub time strong {
-  font-size: 145px;
+  font-size: 137px;
   letter-spacing: -0.03em;
 }
 .night-ticket-stub .button {
   width: 100%;
+  background: #19131f;
+  color: #f5f1fc;
   justify-content: space-between;
+}
+.night-ticket-stub .button:hover {
+  background: #352944;
 }
 .night-ticket-fine {
   font-size: 9px;
-  margin-top: 13px;
+  margin-top: 14px;
   text-align: center;
 }
 .night-empty {
   border: 1px solid var(--rule);
+  border-radius: 12px;
   padding: 50px;
 }
 .night-empty h3 {
@@ -304,11 +489,12 @@
   margin-top: 25px;
 }
 .night-evening {
-  padding-top: 5px;
+  padding-top: 0;
 }
 .evening-aside {
-  font-size: 12px;
-  padding-bottom: 4px;
+  font-size: 13px;
+  color: var(--muted);
+  padding-bottom: 5px;
 }
 .rounds-layout {
   display: grid;
@@ -326,10 +512,11 @@
   display: none;
 }
 .round-photo .photo {
-  height: 420px;
+  height: 390px;
+  border-radius: 10px;
 }
 .round-photo img {
-  filter: saturate(0.65) contrast(1.04);
+  filter: saturate(0.6) brightness(0.85);
 }
 .round-photo-footer {
   display: flex;
@@ -338,19 +525,20 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 35px 24px 18px;
-  color: white;
+  padding: 40px 24px 19px;
+  color: #fff;
   background: linear-gradient(transparent, #000b);
+  border-radius: 0 0 10px 10px;
   font-size: 10px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.08em;
 }
 .rounds-tabs button {
   width: 100%;
   display: grid;
-  grid-template-columns: 26px 1fr 26px;
-  gap: 18px;
-  padding: 29px 0;
+  grid-template-columns: 45px 1fr 25px;
+  gap: 20px;
+  padding: 26px 0;
   text-align: left;
   background: transparent;
   border: 0;
@@ -361,57 +549,58 @@
   border-bottom: 1px solid var(--rule);
 }
 .round-number {
-  font-size: 10px;
-  padding-top: 7px;
+  font: 800 39px/1 var(--display);
+  color: var(--accent);
+}
+.rounds-tabs button:nth-child(2) .round-number {
+  color: var(--lime);
+}
+.rounds-tabs button:nth-child(3) .round-number {
+  color: var(--coral);
 }
 .round-tab-content > strong {
   display: block;
-  font: 800 clamp(26px, 2.7vw, 40px)/1 var(--display);
-  text-transform: uppercase;
+  font: 800 34px/1.1 var(--display);
 }
 .round-description {
   display: block;
   font-size: 13px;
-  line-height: 1.7;
+  line-height: 1.75;
   max-width: 330px;
   padding-top: 0;
   max-height: 0;
   opacity: 0;
   overflow: hidden;
   transition:
-    max-height 230ms var(--ease),
-    opacity 180ms,
-    padding-top 230ms;
+    max-height 220ms,
+    padding-top 220ms,
+    opacity 180ms;
 }
 .round-arrow {
-  font-size: 24px;
-  line-height: 1;
+  font-size: 23px;
 }
 .rounds-tabs [aria-selected="true"] {
-  color: var(--ink);
-}
-.rounds-tabs [aria-selected="true"] .round-number,
-.rounds-tabs [aria-selected="true"] .round-arrow {
-  color: var(--red-text);
+  color: var(--text);
 }
 .rounds-tabs [aria-selected="true"] .round-description {
   padding-top: 15px;
-  max-height: 135px;
+  max-height: 140px;
   opacity: 1;
+  color: var(--muted);
 }
 .rounds-tabs button:hover strong {
-  color: var(--red-text);
+  color: var(--accent);
 }
 .night-demo-caption {
   font-size: 10px;
   color: var(--muted);
-  margin-top: 13px;
+  margin-top: 14px;
 }
 .night-city {
   position: relative;
-  color: var(--paper);
-  background: var(--night);
+  background: var(--canvas);
   isolation: isolate;
+  border-block: 1px solid var(--rule);
 }
 .night-city > .photo {
   position: absolute;
@@ -426,49 +615,51 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, #000d 0%, #000a 35%, #0003 100%);
+  background: linear-gradient(
+    90deg,
+    #0d0b11e8 0%,
+    #0d0b11a8 40%,
+    #0d0b1130 100%
+  );
   z-index: 1;
   pointer-events: none;
 }
 .night-city-content {
   position: relative;
   z-index: 2;
-  padding-block: 80px 66px;
+  padding-block: 82px 68px;
 }
 .night-city-content h2 {
   font-size: clamp(75px, 8.5vw, 126px);
   margin-top: 25px;
   max-width: 700px;
-  line-height: 0.88;
+  line-height: 0.9;
 }
 .night-city-content > p:not(.eyebrow) {
   max-width: 340px;
   font-size: 14px;
-  line-height: 1.7;
+  line-height: 1.8;
   margin-top: 25px;
-}
-.night-city-content .button {
-  margin-top: 27px;
 }
 .night-city-credit {
   position: absolute;
   right: 0;
-  bottom: 34px;
+  bottom: 30px;
   font-size: 9px;
-  color: #e3e0d9;
+  color: #e4daec;
 }
 .night-neighbourhoods {
   position: relative;
   z-index: 2;
-  border-top: 1px solid #ffffff45;
-  background: #1119;
+  border-top: 1px solid #ffffff35;
+  background: #0d0b11a0;
 }
 .night-neighbourhoods > div {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  padding-block: 21px;
+  padding-block: 22px;
 }
 .night-neighbourhoods span {
   font-size: 12px;
@@ -477,45 +668,59 @@
   font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #c5c0b5;
+  color: var(--accent);
 }
 .night-lessons {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 26px;
+  gap: 25px;
 }
 .night-lesson {
-  border: 1px solid var(--rule);
-  display: flex;
-  flex-direction: column;
-  transition: border-color 180ms;
+  --ink: #17131f;
+  --muted: #413d49;
+  --rule: #17131f40;
+  --red-text: #352347;
+  background: #a4d9e5;
+  color: var(--ink);
+  border: 1px solid #fff5;
+  border-radius: 12px;
+  overflow: hidden;
+  transition:
+    transform 200ms,
+    border-color 200ms;
 }
-.night-lesson:hover {
-  border-color: var(--ink);
+.night-lesson:nth-child(2) {
+  background: #ffa496;
+}
+.night-lesson:nth-child(3) {
+  background: #dfff9c;
+}
+.night-lesson:not([open]):hover {
+  transform: translateY(-6px);
+  border-color: #fff;
 }
 .night-lesson-image {
   position: relative;
 }
 .night-lesson-image > .photo {
-  height: 176px;
+  height: 185px;
 }
 .night-lesson-image img {
-  filter: grayscale(0.4) saturate(0.7);
+  filter: grayscale(1) brightness(0.8);
 }
 .night-lesson-image > span {
   position: absolute;
-  bottom: -1px;
-  left: 0;
-  background: var(--paper);
-  color: var(--red-text);
-  font: 800 47px/0.9 var(--display);
-  padding: 11px 18px 0;
+  bottom: 13px;
+  left: 22px;
+  color: #fff;
+  font: 800 55px/1 var(--display);
+  text-shadow: 0 2px 16px #000a;
 }
 .night-lesson-text {
-  padding: 20px 22px;
-  flex: 1;
+  padding: 24px;
   display: flex;
   flex-direction: column;
+  min-height: 256px;
 }
 .night-lesson-meta {
   display: flex;
@@ -524,76 +729,63 @@
   font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--muted);
+  font-weight: 700;
 }
 .night-lesson h3 {
-  font-size: clamp(27px, 2.6vw, 40px);
+  font-size: 37px;
   line-height: 1;
-  margin-top: 17px;
+  margin-top: 20px;
 }
 .night-lesson-text > p {
   font-size: 12px;
-  line-height: 1.65;
-  margin-block: 13px 22px;
+  line-height: 1.6;
+  margin-block: 14px 25px;
   color: var(--muted);
+}
+.night-lesson .text-link:hover {
+  color: #38204a;
 }
 .night-lesson-link {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px dashed var(--rule);
-  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  padding-top: 14px;
   margin-top: auto;
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 800;
 }
 .night-invitations {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
 }
 .night-invitation {
-  padding: 45px 46px;
-  border: 1px solid var(--rule);
+  padding: 40px;
+  border: 1px solid #554267;
+  border-radius: 12px;
+  background: #1c1527;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: stretch;
 }
 .night-invitation h2 {
-  margin-block: 22px 13px;
-  font-size: clamp(45px, 4.5vw, 68px);
+  margin-block: 24px 15px;
+  font-size: clamp(48px, 4.5vw, 68px);
 }
 .night-invitation > p:not(.eyebrow) {
-  font-size: 13px;
-}
-.night-invitation .text-link {
-  margin-top: 26px;
-}
-.night-invitation-dark {
-  background: var(--ink);
-  color: var(--paper);
-  border-color: var(--ink);
-}
-.night-invitation-dark .eyebrow {
-  color: #b8b3a9;
-}
-.night-partners {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 30px;
-  padding-block: 28px;
-  border-bottom: 1px solid var(--rule);
-}
-.night-partners > p {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
 }
-.night-partners strong {
-  color: var(--ink);
-  margin-right: 5px;
+.night-invitation-dark {
+  background: #181e15;
+  border-color: #49563b;
 }
-.night-partners .text-link {
-  white-space: nowrap;
+.night-invitation-dark .eyebrow {
+  color: var(--lime);
+}
+.night-invitation-dark h2 {
+  color: #e4fac3;
 }
 .night-faq {
   display: grid;
@@ -602,57 +794,41 @@
   align-items: start;
 }
 .night-faq h2 {
-  margin-top: 16px;
+  margin-top: 17px;
 }
 .night-faq .accordion h3 {
   font-family: var(--sans);
-  text-transform: none;
-  letter-spacing: -0.015em;
+  letter-spacing: 0;
 }
 .night-faq .accordion button {
-  font-size: 15px;
-  padding-block: 22px;
+  font-size: 14px;
 }
 .night-faq .accordion-panel p {
   font-size: 13px;
 }
-.toronto-home .newsletter h2 {
-  font-size: clamp(58px, 6.5vw, 96px);
-  line-height: 0.93;
-}
-.toronto-home .newsletter p:not(.eyebrow) {
-  font-size: 13px;
-}
 @media (min-width: 1550px) {
   .night-hero {
-    padding-top: 40px;
-    padding-bottom: 60px;
+    padding-block: 90px 105px;
   }
 }
-@media (max-width: 1100px) and (min-width: 761px) {
+@media (min-width: 761px) and (max-width: 1100px) {
   .night-hero {
-    gap: 3%;
+    gap: 4%;
+    padding-block: 65px;
+    min-height: 610px;
   }
   .night-intro h1 {
-    font-size: 9vw;
-  }
-  .night-people {
-    margin-left: 15px;
-    min-height: 520px;
-  }
-  .night-city-inset {
-    left: -8px;
-    width: 56%;
+    font-size: 5.5vw;
   }
   .night-actions {
-    gap: 15px;
     flex-wrap: wrap;
+    gap: 14px;
   }
-  .night-actions .button {
-    gap: 20px;
+  .hero-passes {
+    font-size: 1.06vw;
   }
   .night-ticket {
-    grid-template-columns: 1fr 235px;
+    grid-template-columns: 1fr 230px;
   }
   .night-ticket-main {
     padding-inline: 28px;
@@ -664,130 +840,115 @@
     flex-direction: column;
     gap: 5px;
   }
-  .night-ticket-stub {
-    padding-inline: 20px;
+  .night-lessons {
+    gap: 16px;
+  }
+  .night-lesson h3 {
+    font-size: 31px;
+  }
+  .night-lesson-text {
+    padding: 20px;
+    min-height: 280px;
+  }
+  .night-lesson-meta {
+    flex-wrap: wrap;
+    gap: 3px;
+  }
+  .night-invitation {
+    padding: 28px;
   }
   .rounds-layout {
     gap: 5%;
   }
   .rounds-tabs button {
-    gap: 10px;
+    gap: 12px;
+    grid-template-columns: 35px 1fr 20px;
   }
-  .night-lessons {
-    gap: 16px;
-  }
-  .night-invitation {
-    padding: 35px 27px;
-  }
-  .night-collage figcaption {
-    font-size: 8px;
+  .round-tab-content > strong {
+    font-size: 29px;
   }
 }
 @media (max-width: 760px) {
   .night-section {
-    padding-block: 60px;
+    padding-block: 62px;
   }
   .toronto-home h2 {
-    font-size: clamp(44px, 10.5vw, 65px);
-  }
-  .toronto-home .eyebrow {
-    font-size: 9px;
+    font-size: clamp(46px, 11.8vw, 68px);
   }
   .night-hero {
     display: flex;
     flex-direction: column;
-    padding-top: 24px;
-    padding-bottom: 35px;
-    gap: 29px;
+    align-items: stretch;
+    padding-block: 36px 48px;
+    gap: 35px;
+    min-height: 0;
   }
   .night-intro > .eyebrow {
-    margin-bottom: 23px;
     font-size: 9px;
+    letter-spacing: 0.1em;
+    margin-bottom: 23px;
   }
   .night-intro h1 {
-    font-size: clamp(46px, 12.8vw, 95px);
-    line-height: 0.87;
-    letter-spacing: -0.025em;
+    font-size: clamp(42px, 11.9vw, 80px);
+    line-height: 0.93;
   }
   .night-intro h1 > span + span {
-    margin-top: 4px;
+    margin-top: 5px;
+  }
+  .night-subhead {
+    font-size: 17px;
+    margin-top: 23px;
+    max-width: 310px;
   }
   .night-description {
-    font-size: 14px;
-    max-width: 345px;
-    line-height: 1.65;
-    margin-top: 21px;
+    font-size: 13px;
+    max-width: 370px;
+    margin-top: 14px;
+    line-height: 1.75;
   }
   .night-actions {
-    gap: 21px;
-    margin-top: 21px;
+    gap: 22px;
+    margin-top: 24px;
   }
   .night-actions .button {
-    padding-inline: 17px;
-    gap: 21px;
+    font-size: 11px;
+    padding-inline: 18px;
+    gap: 18px;
+    min-height: 50px;
   }
   .night-secondary {
-    font-size: 10px;
+    font-size: 11px;
     gap: 10px;
   }
-  .night-collage {
-    margin: 0 -20px 18px;
-    height: 320px;
+  .hero-passes {
+    width: 90%;
+    max-width: 470px;
+    margin: 5px auto 25px;
+    font-size: clamp(7px, 2.05vw, 11px);
+    aspect-ratio: 0.96;
   }
-  .night-people {
-    margin-left: 0;
-    min-height: 0;
-    height: 100%;
+  .lesson-pass .pass-duration > strong {
+    font-size: 9.7em;
   }
-  .night-people img {
-    object-position: 50% 43%;
+  .lesson-pass .pass-promise {
+    display: none;
   }
-  .night-city-inset {
-    left: auto;
-    right: 17px;
-    bottom: 17px;
-    width: 38%;
-    max-width: 205px;
-    border-width: 5px;
-  }
-  .night-city-inset .photo {
-    aspect-ratio: 1.5;
-  }
-  .night-city-inset > span {
-    font-size: 8px;
-    padding-top: 5px;
-  }
-  .night-city-inset .arrow {
-    font-size: 13px;
-  }
-  .night-collage figcaption {
-    right: 20px;
-    left: 20px;
-    bottom: -24px;
-    font-size: 8px;
-    text-align: right;
+  .pass-caption {
+    font-size: 0.95em;
+    left: 5%;
+    bottom: -6%;
   }
   .night-formula > .container {
-    width: 100%;
+    gap: 18px;
   }
   .night-formula > .container > span {
-    font-size: clamp(19px, 5.15vw, 30px);
-    padding: 20px 12px;
-    flex-direction: column;
-    align-items: start;
-    gap: 7px;
-  }
-  .night-formula > .container > span:first-child {
-    padding-left: 20px;
-  }
-  .night-formula > .container > span + span {
-    border-left: 1px solid var(--rule);
-  }
-  .night-formula small {
     font-size: 8px;
+    letter-spacing: 0.04em;
+    padding-block: 18px;
+    gap: 8px;
   }
-  .night-formula .formula-arrow {
-    display: none;
+  .formula-arrow {
+    font-size: 16px;
   }
   .night-section-heading {
     gap: 20px;
@@ -797,15 +958,18 @@
     font-size: 10px;
     gap: 10px;
   }
+  .night-next .night-section-heading {
+    flex-wrap: wrap;
+  }
   .night-next .night-section-heading h2 {
-    font-size: 39px;
-    max-width: 220px;
+    max-width: 360px;
   }
   .night-ticket {
     grid-template-columns: 1fr;
+    border-radius: 10px 10px 0 0;
   }
   .night-ticket-main {
-    padding: 23px 23px 22px;
+    padding: 25px 23px;
   }
   .night-ticket-top {
     font-size: 8px;
@@ -817,7 +981,7 @@
     padding: 4px 6px;
   }
   .night-ticket h3 {
-    font-size: clamp(48px, 12.5vw, 70px);
+    font-size: clamp(45px, 12vw, 70px);
     margin-block: 26px 16px;
   }
   .night-ticket-main > p {
@@ -834,31 +998,22 @@
     flex-wrap: wrap;
     gap: 4px 20px;
     font-size: 10px;
-    margin-top: 21px;
+    margin-top: 22px;
     padding-top: 17px;
   }
   .night-ticket-stub {
     border-left: 0;
-    border-top: 1px dashed #1118;
+    border-top: 1px dashed #17131f80;
     display: grid;
-    grid-template-columns: 100px minmax(0, 1fr);
+    grid-template-columns: 95px minmax(0, 1fr);
     padding: 24px 23px;
     column-gap: 24px;
-  }
-  .night-ticket-stub:before {
-    left: -10px;
-    top: -10px;
-  }
-  .night-ticket-stub:after {
-    left: auto;
-    right: -10px;
-    top: -10px;
   }
   .night-ticket-stub > .eyebrow {
     display: none;
   }
   .night-ticket-stub time {
-    grid-row: 1 / 3;
+    grid-row: 1/3;
     margin: 0;
     align-items: flex-start;
   }
@@ -871,7 +1026,7 @@
   }
   .night-ticket-stub .button {
     min-height: 46px;
-    padding-inline: 12px;
+    padding-inline: 14px;
     gap: 15px;
     font-size: 11px;
   }
@@ -884,13 +1039,13 @@
     padding-top: 0;
   }
   .evening-aside {
-    max-width: 105px;
+    max-width: 108px;
     font-size: 10px;
   }
   .rounds-layout {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
   }
   .rounds-photos,
   .rounds-tabs {
@@ -900,9 +1055,9 @@
     height: 265px;
   }
   .rounds-tabs button {
-    padding: 22px 0;
-    grid-template-columns: 22px 1fr 22px;
-    gap: 14px;
+    padding: 23px 0;
+    grid-template-columns: 38px 1fr 22px;
+    gap: 15px;
   }
   .round-tab-content > strong {
     font-size: 30px;
@@ -914,10 +1069,10 @@
     font-size: 9px;
   }
   .night-city-content {
-    padding-block: 60px 65px;
+    padding-block: 65px 68px;
   }
   .night-city-content h2 {
-    font-size: clamp(74px, 19vw, 105px);
+    font-size: clamp(72px, 19vw, 105px);
     margin-top: 22px;
   }
   .night-city-content > p:not(.eyebrow) {
@@ -925,21 +1080,21 @@
     font-size: 13px;
   }
   .night-city:after {
-    background: #0009;
+    background: #0d0b119f;
   }
   .night-city > .photo img {
     object-position: 62% center;
   }
   .night-city-credit {
     left: 0;
-    bottom: 21px;
+    bottom: 23px;
     font-size: 8px;
   }
   .night-neighbourhoods > div {
     flex-wrap: wrap;
     justify-content: start;
     gap: 9px 22px;
-    padding-block: 18px;
+    padding-block: 19px;
   }
   .night-neighbourhoods span {
     font-size: 11px;
@@ -951,63 +1106,50 @@
   .night-archive .night-section-heading {
     align-items: start;
     flex-direction: column;
+    gap: 12px;
   }
   .night-lessons {
     grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .night-lesson-image > .photo {
-    height: 185px;
+    gap: 22px;
   }
   .night-lesson h3 {
-    font-size: 35px;
+    font-size: 37px;
   }
   .night-lesson-text {
-    padding: 19px 20px;
+    min-height: 0;
+    padding: 23px;
   }
   .night-lesson-text > p {
-    margin-bottom: 17px;
+    margin-bottom: 22px;
   }
   .night-invitations {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
   .night-invitation {
-    padding: 34px 25px;
+    padding: 30px 25px;
   }
   .night-invitation h2 {
-    font-size: 51px;
+    font-size: 54px;
     margin-top: 22px;
   }
   .night-invitation > p:not(.eyebrow) {
-    font-size: 12px;
-  }
-  .night-partners {
-    flex-direction: column;
-    align-items: start;
-    gap: 14px;
-    padding-block: 25px;
-  }
-  .night-partners strong {
-    display: block;
-    margin-bottom: 5px;
+    font-size: 13px;
   }
   .night-faq {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 30px;
   }
   .night-faq .accordion button {
-    font-size: 14px;
-  }
-  .toronto-home .newsletter h2 {
-    font-size: clamp(58px, 15vw, 85px);
+    font-size: 13px;
   }
 }
 @media (prefers-reduced-motion: no-preference) {
   .night-intro {
-    animation: night-arrive 550ms var(--ease) both;
+    animation: night-arrive 500ms var(--ease) both;
   }
-  .night-collage {
-    animation: night-arrive 650ms 90ms var(--ease) both;
+  .hero-passes {
+    animation: night-arrive 650ms 70ms var(--ease) both;
   }
   .round-photo:not([hidden]) {
     animation: round-appear 180ms ease-out;
@@ -1015,7 +1157,7 @@
   @keyframes night-arrive {
     from {
       opacity: 0;
-      transform: translateY(12px);
+      transform: translateY(10px);
     }
     to {
       opacity: 1;
@@ -1024,10 +1166,22 @@
   }
   @keyframes round-appear {
     from {
-      opacity: 0.5;
+      opacity: 0.6;
     }
     to {
       opacity: 1;
     }
   }
+}
+.night-lesson .eyebrow {
+  color: #38204a;
+}
+.night-lesson a:focus-visible {
+  outline-color: #38204a;
+}
+.newsletter :focus-visible {
+  outline-color: #21162e;
+}
+.newsletter .consent input {
+  accent-color: #21162e;
 }

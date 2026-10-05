@@ -44,8 +44,9 @@ For a local Workers preview, run `npm run preview:cloudflare`. To build and depl
 - `src/lib/forms.ts`: shared server/client validation and form messages.
 - `src/lib/submissions.ts`: the submission provider boundary.
 - `src/components/submission-form.tsx`: field definitions and accessible loading, validation, error and success states.
-- `src/app/globals.css`: shared typography, design tokens and interior page layouts.
-- `src/app/home.css`: the Toronto poster layout, event ticket, photographic compositions and mobile layouts.
+- `src/app/globals.css`: shared dark-theme tokens, navigation, forms, and footer.
+- `src/app/home.css`: the reference-inspired dark layout, layered event passes, coloured recap tickets and mobile compositions.
+- `src/components/hero-passes.tsx`: original interactive pass artwork built with CSS, SVG and a credited Toronto photograph.
 - `src/components/evening-schedule.tsx`: the interactive evening programme, with keyboard-accessible tabs and reduced-motion support.
 
 The website has one content page: `/`. Navigation scrolls to sections; event details, recaps, applications, contact options and privacy open inline. Previous page URLs permanently redirect to their matching homepage anchors. The production sitemap lists only `/`. Event times use `America/Toronto`; store full ISO timestamps with the correct offset for the date (EST or EDT).
