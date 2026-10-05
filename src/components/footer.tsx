@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "@/content/site";
+import { home } from "@/content/home";
 import { Eyebrow } from "./ui";
 import { SubmissionForm } from "./submission-form";
 export function Newsletter() {
@@ -7,16 +8,13 @@ export function Newsletter() {
     <section className="newsletter" id="newsletter">
       <div className="container newsletter-inner">
         <div>
-          <Eyebrow>Get the invitation</Eyebrow>
+          <Eyebrow>{home.newsletter.label}</Eyebrow>
           <h2>
-            See you at
+            {home.newsletter.title[0]}
             <br />
-            the next one.
+            {home.newsletter.title[1]}
           </h2>
-          <p>
-            New dates, speaker announcements, and notes worth keeping. We’ll
-            email when there’s something to share.
-          </p>
+          <p>{home.newsletter.description}</p>
         </div>
         <SubmissionForm type="newsletter" compact />
       </div>

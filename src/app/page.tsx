@@ -1,30 +1,16 @@
 import Link from "next/link";
-import { ArchiveTicket, EventTicket } from "@/components/event-ticket";
 import { Accordion } from "@/components/accordion";
 import { EveningSchedule } from "@/components/evening-schedule";
 import { Newsletter } from "@/components/footer";
-import {
-  Arrow,
-  ButtonLink,
-  DemoNote,
-  Eyebrow,
-  Photo,
-  SectionHeading,
-  TextLink,
-} from "@/components/ui";
-import {
-  faqs,
-  home,
-  membershipBenefits,
-  site,
-  testimonials,
-  communityPosts,
-} from "@/content/site";
+import { Arrow, ButtonLink, Eyebrow, Photo, TextLink } from "@/components/ui";
+import { faqs } from "@/content/site";
+import { home } from "@/content/home";
 import {
   upcomingEvents,
   pastEvents,
   formatDate,
   formatTime,
+  eventState,
 } from "@/content/events";
 import "./home.css";
 
@@ -34,276 +20,240 @@ export default function HomePage() {
   const upcoming = upcomingEvents();
   const next = upcoming.find((event) => event.featured) || upcoming[0];
   const past = pastEvents().slice(0, 3);
-
   return (
-    <>
-      <section className="opening container">
-        <Eyebrow>{home.eyebrow}</Eyebrow>
-        <div className="opening-grid">
-          <h1>
-            {home.headline.map((line) => (
-              <span key={line}>{line}</span>
+    <div className="toronto-home">
+      <section className="night-hero container" aria-labelledby="night-heading">
+        <div className="night-intro">
+          <Eyebrow>
+            <span className="local-line" aria-hidden="true" />
+            {home.eyebrow}
+          </Eyebrow>
+          <h1 id="night-heading">
+            {home.headline.map((line, index) => (
+              <span
+                key={line}
+                className={index === 1 ? "night-red" : undefined}
+              >
+                {line}
+              </span>
             ))}
           </h1>
-          <div className="opening-intro">
-            <p className="opening-lead">{home.intro}</p>
-            <p>{home.description}</p>
-            <ButtonLink href="/events">See the next event</ButtonLink>
-            <a href="#evening-heading" className="opening-secondary">
-              What’s the evening like? <span aria-hidden="true">↓</span>
+          <p className="night-description">{home.description}</p>
+          <div className="night-actions">
+            <ButtonLink href="#next-up" variant="red">
+              {home.action}
+            </ButtonLink>
+            <a href="#the-evening" className="night-secondary">
+              {home.secondary}
+              <span aria-hidden="true">↓</span>
             </a>
           </div>
         </div>
-        <div className="opening-scene">
-          {/* Atmosphere placeholder. Replace with candid photography from a real Toronto event. */}
+        <figure className="night-collage">
+          {/* Stock atmosphere placeholder. Replace with an approved Toronto community photograph. */}
           <Photo
-            src="/images/the-room.jpg"
-            alt="Atmosphere reference: people sharing food, drinks and a conversation around a table"
+            src="/images/conversations.jpg"
+            alt="Illustrative photograph of a conversation over drinks at a neighbourhood bar"
+            className="night-people"
             priority
-            sizes="(max-width: 760px) 100vw, 70vw"
-            className="opening-photo"
+            sizes="(max-width: 760px) 100vw, 48vw"
           />
-          {next ? (
-            <Link className="opening-notice" href={`/events/${next.slug}`}>
-              <span className="notice-label">
-                Next session {next.isDemo && <span>Preview</span>}
-              </span>
-              <span className="notice-date">{formatDate(next.date, true)}</span>
-              <h2>{next.title}</h2>
-              <span className="notice-location">
-                {next.neighbourhood}
-                <br />
-                {formatTime(next.startTime)} · Toronto
-              </span>
-              <span className="notice-link">
-                See the details <Arrow diagonal />
-              </span>
-            </Link>
-          ) : (
-            <div className="opening-notice">
-              <Eyebrow>The first evening</Eyebrow>
-              <h2>We’re putting it together.</h2>
-              <ButtonLink href="#newsletter">Get the invitation</ButtonLink>
-            </div>
-          )}
-        </div>
-        <div className="opening-caption">
-          <span>In person. In Toronto.</span>
-          <span>Atmosphere photograph · Event images coming soon</span>
-        </div>
-        <div className="house-rules">
-          <span>One speaker, one useful lesson.</span>
-          <span>No panels or pitch competitions.</span>
-          <span>Enough time for another round.</span>
-        </div>
+          <div className="night-city-inset">
+            <Photo
+              src="/images/toronto-streetcar.jpg"
+              alt="A red streetcar on a downtown Toronto street, photographed by Nathalia Segato"
+              sizes="(max-width: 760px) 40vw, 20vw"
+            />
+            <span>
+              Meet you in Toronto. <Arrow diagonal />
+            </span>
+          </div>
+          <figcaption>
+            Bar photo: atmosphere reference · Toronto photo: Nathalia Segato
+          </figcaption>
+        </figure>
       </section>
-
-      <section className="section container next-section" id="next-up">
-        <SectionHeading label="The calendar" title="Next up.">
+      <div className="night-formula" aria-label="The event format">
+        <div className="container">
+          {home.facts.map((fact, index) => (
+            <span key={fact}>
+              {fact}
+              {index < home.facts.length - 1 && (
+                <span className="formula-arrow" aria-hidden="true">
+                  →
+                </span>
+              )}
+            </span>
+          ))}
+        </div>
+      </div>
+      <section className="night-next container night-section" id="next-up">
+        <div className="night-section-heading">
+          <div>
+            <Eyebrow>{home.next.label}</Eyebrow>
+            <h2>{home.next.title}</h2>
+          </div>
           <TextLink href="/events">All events</TextLink>
-        </SectionHeading>
+        </div>
         {next ? (
-          <EventTicket event={next} />
+          <article className="night-ticket">
+            <div className="night-ticket-main">
+              <div className="night-ticket-top">
+                <span>FOUNDER WORKSHOP / {next.eventNumber}</span>
+                <span className="night-event-state">
+                  {next.isDemo
+                    ? "SAMPLE EVENT"
+                    : eventState(next) === "sold-out"
+                      ? "SOLD OUT"
+                      : "APPLICATIONS OPEN"}
+                </span>
+              </div>
+              <h3>{next.title}</h3>
+              <p>{next.subtitle}</p>
+              <div className="night-ticket-speaker">
+                <span>WITH</span>
+                <strong>{next.speakerName}</strong>
+                <span>
+                  {next.speakerRole}, {next.speakerCompany}
+                  {next.isDemo ? " · Sample speaker" : ""}
+                </span>
+              </div>
+              <div className="night-ticket-location">
+                <span>{next.neighbourhood} · Toronto</span>
+                <span>
+                  {formatTime(next.startTime)} · {next.capacity} seats
+                </span>
+              </div>
+            </div>
+            <div className="night-ticket-stub">
+              <span className="eyebrow">Save the evening</span>
+              <time dateTime={next.date}>
+                <span>{formatDate(next.date, true).split(" ")[0]}</span>
+                <strong>{formatDate(next.date, true).split(" ")[1]}</strong>
+              </time>
+              <ButtonLink href={`/events/${next.slug}`}>View event</ButtonLink>
+              <span className="night-ticket-fine">
+                {next.isDemo
+                  ? "Preview · Details to be confirmed"
+                  : "A small room. A proper conversation."}
+              </span>
+            </div>
+          </article>
         ) : (
-          <div className="empty-state">
-            <h3>The next date is on its way.</h3>
-            <p>Leave your email and we’ll send you the details.</p>
-            <ButtonLink href="#newsletter">Get event news</ButtonLink>
+          <div className="night-empty">
+            <h3>{home.next.empty}</h3>
+            <p>{home.next.emptyDescription}</p>
+            <ButtonLink href="#newsletter">Get the invitation</ButtonLink>
           </div>
         )}
       </section>
-
       <EveningSchedule />
-
-      <section className="why-section">
-        <div className="container why-grid">
-          <div>
-            <Eyebrow>Why we’re doing this</Eyebrow>
-            <h2>You can get the polished version on LinkedIn.</h2>
-          </div>
-          <div className="why-copy">
-            <p className="why-lead">We want to hear what actually happened.</p>
-            <p>{home.manifesto}</p>
-            <TextLink href="/about" light>
-              More about us
-            </TextLink>
+      <section className="night-city" aria-labelledby="city-heading">
+        <Photo
+          src="/images/toronto-at-night.jpg"
+          alt="A Toronto streetcar crossing King Street after dark, photographed by Alex Lian"
+          sizes="100vw"
+        />
+        <div className="night-city-content container">
+          <Eyebrow>{home.city.label}</Eyebrow>
+          <h2 id="city-heading">{home.city.title}</h2>
+          <p>{home.city.description}</p>
+          <ButtonLink href="/about" variant="light">
+            {home.city.action}
+          </ButtonLink>
+          <span className="night-city-credit">
+            Toronto, after dark · Photo by Alex Lian
+          </span>
+        </div>
+        <div className="night-neighbourhoods">
+          <div className="container">
+            <span>Our kind of Toronto</span>
+            {home.city.neighbourhoods.map((place) => (
+              <span key={place}>{place}</span>
+            ))}
           </div>
         </div>
       </section>
-
-      <section className="section archive-section home-archive">
-        <div className="container">
-          <SectionHeading label="The notebook" title="Take something with you.">
-            <TextLink href="/past-talks">Browse the recaps</TextLink>
-          </SectionHeading>
-          <div className="archive-grid">
+      {past.length > 0 && (
+        <section className="night-section night-archive container">
+          <div className="night-section-heading">
+            <div>
+              <Eyebrow>{home.archive.label}</Eyebrow>
+              <h2>{home.archive.title}</h2>
+            </div>
+            <TextLink href="/past-talks">{home.archive.action}</TextLink>
+          </div>
+          <div className="night-lessons">
             {past.map((event) => (
-              <ArchiveTicket key={event.id} event={event} />
+              <Link
+                href={`/events/${event.slug}`}
+                className="night-lesson"
+                key={event.id}
+              >
+                <div className="night-lesson-image">
+                  <Photo
+                    src={event.heroImage}
+                    alt={`Illustrative photograph for ${event.title}`}
+                    sizes="(max-width: 760px) 90vw, 30vw"
+                  />
+                  <span>{event.eventNumber}</span>
+                </div>
+                <div className="night-lesson-text">
+                  <div className="night-lesson-meta">
+                    <span>
+                      {event.isDemo
+                        ? "Sample session"
+                        : formatDate(event.date, true)}
+                    </span>
+                    <span>{event.neighbourhood}</span>
+                  </div>
+                  <h3>{event.title}</h3>
+                  <p>{event.takeaways[0]}</p>
+                  <span className="night-lesson-link">
+                    Read the lesson
+                    <Arrow diagonal />
+                  </span>
+                </div>
+              </Link>
             ))}
           </div>
           {past.some((event) => event.isDemo) && (
-            <p className="archive-disclaimer">
-              Sample recaps showing the format. Real notes will follow our first
-              events.
-            </p>
+            <p className="night-demo-caption">{home.archive.demo}</p>
           )}
+        </section>
+      )}
+      <section className="night-invitations container">
+        <div className="night-invitation">
+          <Eyebrow>{home.speak.label}</Eyebrow>
+          <h2>{home.speak.title}</h2>
+          <p>{home.speak.description}</p>
+          <TextLink href="/speak">{home.speak.action}</TextLink>
+        </div>
+        <div className="night-invitation night-invitation-dark">
+          <Eyebrow>{home.membership.label}</Eyebrow>
+          <h2>{home.membership.title}</h2>
+          <p>{home.membership.description}</p>
+          <TextLink href="/membership" light>
+            {home.membership.action}
+          </TextLink>
         </div>
       </section>
-
-      <section className="section container speaker-invite">
-        <Eyebrow>Take the mic</Eyebrow>
+      <div className="night-partners container">
+        <p>
+          <strong>{home.partners.title}</strong> {home.partners.description}
+        </p>
+        <TextLink href="/partners">{home.partners.action}</TextLink>
+      </div>
+      <section className="night-section night-faq container">
         <div>
-          <h2>
-            What did you learn
-            <br />
-            the hard way?
-          </h2>
-          <div>
-            <p>
-              Tell us about the customer you almost lost, the hire you got
-              wrong, or the experiment that finally worked. Pick one thing and
-              get specific.
-            </p>
-            <ButtonLink href="/speak">Pitch us a lesson</ButtonLink>
-          </div>
+          <Eyebrow>{home.faq.label}</Eyebrow>
+          <h2>{home.faq.title}</h2>
         </div>
-      </section>
-
-      <section className="company-section">
-        <div className="container">
-          <div className="company-intro">
-            <div>
-              <Eyebrow>Who you’ll meet</Eyebrow>
-              <h2>
-                People with something
-                <br />
-                on the go.
-              </h2>
-            </div>
-            <p>
-              A company, a side project, a problem they can’t put down. You
-              don’t need an impressive title. You do need to be curious about
-              what other people are making.
-            </p>
-          </div>
-          <div className="company-photos">
-            <Photo
-              src="/images/the-lesson.jpg"
-              alt="Atmosphere reference: a small group listening and talking outside"
-              sizes="(max-width: 760px) 100vw, 60vw"
-            />
-            <Photo
-              src="/images/after-hours.jpg"
-              alt="Atmosphere reference: a neighbourhood bar ready for the evening"
-              sizes="(max-width: 760px) 45vw, 35vw"
-            />
-            <div className="company-note">
-              <p>
-                Come on your own.
-                <br />
-                Leave with a few people
-                <br />
-                to follow up with.
-              </p>
-              <TextLink href="/events">Come to an event</TextLink>
-            </div>
-          </div>
-          <DemoNote />
-          <div
-            className="company-roles"
-            aria-label="People this community is for"
-          >
-            {home.people.map((person) => (
-              <span key={person}>{person}</span>
-            ))}
-          </div>
-          {testimonials.length > 0 && (
-            <div className="testimonials">
-              {testimonials.map((quote) => (
-                <blockquote key={quote.name}>
-                  <p>“{quote.quote}”</p>
-                  <cite>
-                    {quote.name} · {quote.role}
-                  </cite>
-                </blockquote>
-              ))}
-            </div>
-          )}
-          {communityPosts.length > 0 && (
-            <div className="community-posts">
-              {communityPosts.map((post) => (
-                <a
-                  href={post.url}
-                  key={post.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {post.title} — {post.author}
-                  <Arrow diagonal />
-                </a>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-
-      <section className="section container regulars-section">
-        <div>
-          <Eyebrow>Membership · In the works</Eyebrow>
-          <h2>
-            Make it
-            <br />a regular thing.
-          </h2>
-          <p>
-            For the people who want to keep in touch between events. We’re
-            putting together coworking days, small dinners and a private
-            community.
-          </p>
-          <ButtonLink href="/membership">
-            Join the membership waitlist
-          </ButtonLink>
-        </div>
-        <div className="regulars-details">
-          <span className="regulars-brand">{site.name}</span>
-          <h3>For the regulars.</h3>
-          <ul>
-            {membershipBenefits.map(([title]) => (
-              <li key={title}>{title}</li>
-            ))}
-          </ul>
-          <span className="regulars-status">
-            Launching soon · No payment to join the waitlist
-          </span>
-        </div>
-      </section>
-
-      <section className="partner-strip">
-        <div className="container">
-          <div>
-            <Eyebrow>Help make it happen</Eyebrow>
-            <h2>Support the next evening.</h2>
-          </div>
-          <div>
-            <p>
-              Have a space, a useful product, or a company that wants to support
-              Toronto’s builders? Let’s talk about a partnership that makes
-              sense.
-            </p>
-            <TextLink href="/partners">Partner with us</TextLink>
-          </div>
-        </div>
-      </section>
-
-      <section className="section container faq-section">
-        <div>
-          <Eyebrow>Before you come</Eyebrow>
-          <h2>A few details.</h2>
-          <p>Something else on your mind?</p>
-          <TextLink href="/contact">Ask us</TextLink>
-        </div>
-        <Accordion items={faqs} />
+        <Accordion
+          items={faqs.filter((_, index) => [0, 2, 4, 5].includes(index))}
+        />
       </section>
       <Newsletter />
-    </>
+    </div>
   );
 }

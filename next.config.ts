@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 const config: NextConfig = {
   poweredByHeader: false,
   turbopack: { root: process.cwd() },
-  images: { formats: ["image/avif", "image/webp"] },
+  images: { formats: ["image/webp"] },
   async headers() {
     return [
       {

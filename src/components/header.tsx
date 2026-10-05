@@ -61,7 +61,16 @@ export function Header() {
           aria-label={`${site.name} home`}
           onClick={() => setOpen(false)}
         >
-          {site.name}
+          <span className="brand-lines">
+            {site.wordmarkLines.map((line) => (
+              <span key={line}>{line}</span>
+            ))}
+          </span>
+          <span className="brand-city">
+            Toronto,
+            <br />
+            Canada.
+          </span>
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
           {navigation.map((item) => (

@@ -17,14 +17,14 @@ export default function EventsPage() {
       <section className="page-intro container">
         <Eyebrow>Toronto · After hours</Eyebrow>
         <h1>
-          A good night.
+          Your next
           <br />
-          <span>A better next day.</span>
+          <span>Toronto night.</span>
         </h1>
         <div className="intro-bottom">
           <p>
-            One useful lesson, a drink in your hand, and a room full of people
-            worth getting to know.
+            Small founder workshops in Toronto bars. One useful lesson, then
+            drinks and good company.
           </p>
           <span className="eyebrow">Small rooms. Big conversations.</span>
         </div>

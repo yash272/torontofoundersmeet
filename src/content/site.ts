@@ -1,7 +1,8 @@
 export const site = {
   name: "Founders & Pitchers",
+  wordmarkLines: ["Founders &", "Pitchers"],
   description:
-    "Intimate workshops with Toronto’s founders and operators. One useful lesson. 45 minutes. Then drinks.",
+    "Founder workshops in Toronto bars. One useful lesson, 45 minutes, then drinks with people building things.",
   origin: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   demo: process.env.NEXT_PUBLIC_DEMO_MODE !== "false",
   location: "Toronto, ON",
@@ -16,57 +17,6 @@ export const navigation = [
   { label: "Membership", href: "/membership" },
   { label: "Partners", href: "/partners" },
 ];
-export const home = {
-  eyebrow: "Toronto · Founder workshops, after work",
-  headline: ["A good reason", "to close your", "laptop."],
-  intro: "Meet the people behind the work.",
-  description:
-    "A founder shares something they learned by doing it. You ask the questions you can’t ask a podcast. Then we get another drink.",
-  formatTitle: "Here’s your evening.",
-  formatDescription:
-    "A little structure at the start. Plenty of time to see where the conversation goes.",
-  format: [
-    {
-      number: "01",
-      title: "Settle in.",
-      time: "7:00 PM",
-      text: "Come straight from work. Grab whatever you’re drinking and introduce yourself to someone. Coming alone is completely normal.",
-      detail: "No name tags. No elevator pitches to rehearse.",
-      image: "/images/after-hours.jpg",
-      alt: "Atmosphere reference: the interior of a warmly lit neighbourhood bar",
-    },
-    {
-      number: "02",
-      title: "Get into it.",
-      time: "7:30 PM",
-      text: "One founder or operator walks through a specific problem: what they tried, what failed, and what they’d do again. There’s time for your questions.",
-      detail: "One practical lesson, in about 45 minutes.",
-      image: "/images/the-lesson.jpg",
-      alt: "Atmosphere reference: a small audience listening to a speaker",
-    },
-    {
-      number: "03",
-      title: "Stay awhile.",
-      time: "8:15 PM — LATE",
-      text: "The scheduled part is over. Ask the speaker a follow-up, compare notes with someone building something, or pull up a chair for another round.",
-      detail: "Stay for one drink or until the conversation runs out.",
-      image: "/images/the-room.jpg",
-      alt: "Atmosphere reference: friends sharing a conversation over dinner",
-    },
-  ],
-  manifesto:
-    "How did you find that first customer? Why did that hire go wrong? What changed your mind about the product? These are the conversations we want to have. So we’re giving them a whole evening.",
-  people: [
-    "Founders",
-    "Operators",
-    "Product people",
-    "Engineers",
-    "Designers",
-    "Creators",
-    "Investors",
-    "The curious",
-  ],
-};
 export const membershipBenefits = [
   [
     "Reserved event access",

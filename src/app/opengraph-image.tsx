@@ -37,12 +37,11 @@ export default function Image() {
           lineHeight: 1,
         }}
       >
-        <span>A good reason</span>
-        <span>to close your</span>
-        <span style={{ color: "#B62D23" }}>laptop.</span>
+        <span>Startup lessons.</span>
+        <span style={{ color: "#B62D23" }}>Toronto nights.</span>
       </div>
       <div style={{ display: "flex", fontSize: 20 }}>
-        One lesson. 45 minutes. Then drinks. ↗
+        Founder workshops in Toronto bars. 45 minutes, then drinks.
       </div>
     </div>,
     size,

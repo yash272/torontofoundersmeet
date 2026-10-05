@@ -22,11 +22,11 @@ The repository includes an explicit OpenNext configuration for the Worker **`tor
 
 In the Worker's **Settings → Build**, use the repository root and production branch `main`:
 
-| Setting | Value |
-| --- | --- |
-| Build command | Leave empty; the deploy command builds the app |
-| Deploy command | `npm run deploy:cloudflare` |
-| Non-production branch deploy command, if enabled | `npm run upload:cloudflare` |
+| Setting                                          | Value                                          |
+| ------------------------------------------------ | ---------------------------------------------- |
+| Build command                                    | Leave empty; the deploy command builds the app |
+| Deploy command                                   | `npm run deploy:cloudflare`                    |
+| Non-production branch deploy command, if enabled | `npm run upload:cloudflare`                    |
 
 Both deployment scripts build Next.js and the OpenNext Worker before publishing. Replace the default `npx wrangler deploy` command with the script above: Wrangler detects OpenNext but does not create the compiled OpenNext config. A plain `npm run build` also produces only the Next.js output, which is insufficient for Workers. If you see “Could not find compiled Open Next config,” check that Cloudflare is using the exact deploy command above and deploying the latest `main` commit.
 
@@ -38,13 +38,14 @@ For a local Workers preview, run `npm run preview:cloudflare`. To build and depl
 
 ## Content and configuration
 
-- `src/content/site.ts`: the single brand name, navigation, homepage copy, FAQs, benefits, partner offerings, and social profiles.
+- `src/content/site.ts`: the brand name, navigation, FAQs, benefits, partner offerings, and social profiles.
+- `src/content/home.ts`: the concise Toronto homepage copy, photographic programme, and newsletter invitation.
 - `src/content/events.ts`: typed event content and the automatic upcoming/past classification. All sample records are explicitly `isDemo: true` and visibly labeled. Replace the records; do not relabel invented speakers as real.
 - `src/lib/forms.ts`: shared server/client validation and form messages.
 - `src/lib/submissions.ts`: the submission provider boundary.
 - `src/components/submission-form.tsx`: field definitions and accessible loading, validation, error and success states.
 - `src/app/globals.css`: shared typography, design tokens and interior page layouts.
-- `src/app/home.css`: the homepage programme, photographic compositions and mobile layouts.
+- `src/app/home.css`: the Toronto poster layout, event ticket, photographic compositions and mobile layouts.
 - `src/components/evening-schedule.tsx`: the interactive evening programme, with keyboard-accessible tabs and reduced-motion support.
 
 Routes: `/`, `/events`, `/events/[slug]`, `/past-talks`, `/about`, `/speak`, `/membership`, `/partners`, `/contact`, `/privacy`. Past event URLs automatically render an editorial recap. Event times use `America/Toronto`; store full ISO timestamps with the correct offset for the date (EST or EDT).
@@ -73,14 +74,20 @@ Metadata, canonicals, Open Graph image, Twitter cards, favicon, robots and sitem
 
 ## Photography placeholders
 
-These images are illustrative atmosphere references from Unsplash, not Toronto community/event documentation. Visible labels make that distinction. Replace each file with real permissioned event photography using the same aspect ratio or adjust `object-position`.
+The bar and workshop images are illustrative atmosphere references from Unsplash and Pexels, not community/event documentation. Visible labels make that distinction. Replace them with permissioned event photography using the same aspect ratio or adjust `object-position`.
+
+The new Toronto street photographs show the actual city; the bar photograph is an illustrative stock image, not documentation of this community:
+
+- `conversations.jpg`: [people at a bar](https://www.pexels.com/photo/people-sitting-at-the-bar-5054676/), from Pexels. Replace with an approved Founders & Pitchers event photograph.
+- `toronto-streetcar.jpg`: [downtown Toronto streetcar](https://unsplash.com/photos/red-and-white-tram-on-road-during-daytime-Pt_8GczlxDg), Nathalia Segato, Unsplash.
+- `toronto-at-night.jpg`: [Toronto streetcar after dark](https://unsplash.com/photos/a-city-street-at-night-with-a-train-passing-by-bygj74NyD90), Alex Lian, Unsplash.
 
 - `the-room.jpg`: https://images.unsplash.com/photo-1528605248644-14dd04022da1 — replace with candid conversations at a Toronto event.
 - `the-lesson.jpg`: https://images.unsplash.com/photo-1517457373958-b7bdd4587205 — replace with a small workshop audience.
 - `after-hours.jpg`: https://images.unsplash.com/photo-1514933651103-005eec06c04b — replace with the actual venue after dark.
 - `the-space.jpg`: https://images.unsplash.com/photo-1517248135467-4c7edcad34c4 — replace with an actual Toronto venue interior.
 
-Instrument Serif and Manrope are distributed under the SIL Open Font License. Their license files are included in `public/fonts`.
+Barlow Condensed, Instrument Serif and Manrope are distributed under the SIL Open Font License. Their license files are included in `public/fonts`. Barlow Condensed carries the poster typography; Manrope carries reading and interface copy.
 
 ## Dependency audit note
 

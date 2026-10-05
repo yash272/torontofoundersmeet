@@ -44,6 +44,13 @@ export default function RootLayout({
       <head>
         <link
           rel="preload"
+          href="/fonts/barlow-condensed-800.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
           href="/fonts/manrope.woff2"
           as="font"
           type="font/woff2"
