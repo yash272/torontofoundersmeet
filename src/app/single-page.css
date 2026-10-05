@@ -1,0 +1,432 @@
+/* Every invitation, lesson and form lives on the same page. */
+summary {
+  cursor: pointer;
+  list-style: none;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+summary:focus-visible {
+  outline: 2px solid var(--red-text);
+  outline-offset: 6px;
+}
+.inline-disclosure > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 56px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.disclosure-symbol {
+  display: inline-block;
+  flex-shrink: 0;
+  font: 400 24px/1 var(--sans);
+  transition: transform 180ms var(--ease);
+}
+details[open] > summary .disclosure-symbol {
+  transform: rotate(45deg);
+}
+.event-disclosure {
+  border: 1px solid var(--rule);
+  border-top: 0;
+  padding-inline: 32px;
+}
+.inline-event-body {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 64px;
+  padding-block: 28px 42px;
+  border-top: 1px solid var(--rule);
+}
+.inline-event-body p,
+.inline-event-body li {
+  font-size: 14px;
+}
+.inline-event-body .eyebrow {
+  margin-bottom: 18px;
+}
+.inline-event-body ul {
+  margin-block: 24px;
+}
+.inline-event-body li + li {
+  margin-top: 9px;
+}
+.inline-event-body h4 {
+  font-size: 17px;
+  line-height: 1.3;
+  margin: 0 0 6px;
+}
+.inline-speaker {
+  display: flex;
+  gap: 20px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+.inline-speaker .photo {
+  width: 110px;
+  height: 140px;
+  flex-shrink: 0;
+}
+.inline-speaker p + p {
+  margin-top: 15px;
+  color: var(--muted);
+}
+.inline-agenda {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+}
+.inline-agenda li {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 15px;
+  padding-block: 9px;
+  border-bottom: 1px solid var(--rule);
+}
+.inline-agenda time {
+  font-size: 12px;
+}
+.inline-event-body .button {
+  margin-top: 22px;
+}
+.inline-note {
+  font-size: 11px !important;
+  color: var(--muted);
+  margin-top: 18px;
+}
+.inline-more-event {
+  margin-top: 32px;
+}
+.inline-more-event > h3 {
+  font-size: 32px;
+  margin-block: 12px;
+}
+.inline-more-event .event-disclosure {
+  border-top: 1px solid var(--rule);
+}
+.story-disclosure {
+  max-width: 760px;
+  margin-top: 24px;
+}
+.story-disclosure > summary {
+  justify-content: flex-start;
+  width: fit-content;
+  border-bottom: 1px solid #aaa69d;
+}
+.inline-story {
+  padding: 28px;
+  margin-top: 22px;
+  background: var(--paper);
+  color: var(--ink);
+}
+.inline-story > p {
+  max-width: 600px;
+  font-size: 15px;
+}
+.inline-story > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 28px;
+  border-top: 1px solid var(--rule);
+  padding-top: 24px;
+}
+.toronto-home .inline-story h3 {
+  font: 750 14px/1.3 var(--sans);
+  text-transform: none;
+  letter-spacing: 0;
+  margin-bottom: 10px;
+}
+.inline-story article p {
+  font-size: 12px;
+}
+.night-lessons {
+  align-items: start;
+}
+.night-lesson > summary {
+  display: block;
+}
+.night-lesson[open] {
+  grid-column: 1 / -1;
+}
+.night-lesson[open] > summary {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+}
+.night-lesson[open] .night-lesson-image {
+  height: 100%;
+  min-height: 220px;
+}
+.night-lesson[open] .night-lesson-image > .photo {
+  height: 100%;
+}
+.night-lesson[open] .night-lesson-text {
+  border-top: 0;
+  padding: 30px;
+}
+.inline-recap-body {
+  border-top: 1px dashed var(--rule);
+  padding: 36px;
+}
+.inline-recap-byline {
+  font-size: 11px;
+}
+.inline-recap-lead {
+  max-width: 740px;
+  font-size: 24px;
+  line-height: 1.4;
+  margin-block: 24px 36px;
+}
+.inline-lessons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 55px;
+}
+.inline-lessons h4 {
+  font-size: 18px;
+  line-height: 1.4;
+  margin: 0 0 12px;
+}
+.inline-lessons p,
+.inline-try p {
+  font-size: 14px;
+  max-width: 62ch;
+}
+.inline-recap-body blockquote {
+  margin: 32px 0;
+  border-left: 3px solid var(--red);
+  padding-left: 24px;
+  max-width: 750px;
+  font-size: 24px;
+  line-height: 1.4;
+}
+.inline-try {
+  padding: 24px;
+  background: #e7e2d7;
+  margin-block: 28px;
+}
+.inline-try .eyebrow {
+  margin-bottom: 14px;
+}
+.night-invitations {
+  align-items: start;
+}
+.night-invitation {
+  height: auto;
+}
+.application-disclosure {
+  margin-top: 26px;
+}
+.application-disclosure > summary {
+  border-bottom: 1px solid currentColor;
+}
+.inline-form-panel {
+  color: var(--ink);
+  background: var(--paper);
+  padding: 26px;
+  margin-top: 24px;
+  min-width: 0;
+}
+.night-invitation:not(.night-invitation-dark) .inline-form-panel {
+  padding-inline: 0;
+}
+.inline-form-panel > p {
+  font-size: 13px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.inline-form-panel > h3 {
+  font-size: 30px;
+  margin-bottom: 24px;
+}
+.inline-form-panel .form-fields {
+  grid-template-columns: 1fr;
+}
+.inline-form-panel .form-field label {
+  font-size: 12px;
+}
+.inline-form-panel .form-field input,
+.inline-form-panel .form-field textarea,
+.inline-form-panel .form-field select {
+  font-size: 16px;
+}
+.inline-form-panel .consent,
+.inline-form-panel .form-success p {
+  color: var(--ink);
+  font-size: 12px;
+}
+.inline-benefits {
+  font-size: 13px;
+  margin: 0 0 28px;
+  padding-left: 18px;
+}
+.inline-benefits li + li {
+  margin-top: 7px;
+}
+.inline-partners {
+  border-bottom: 1px solid var(--rule);
+}
+.partner-disclosure > summary {
+  padding-block: 28px;
+  min-height: 100px;
+  font-weight: 400;
+}
+.partner-disclosure > summary > span:last-child {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  white-space: nowrap;
+  font-weight: 700;
+}
+.partner-summary-copy {
+  color: var(--muted);
+  margin-left: 12px;
+}
+.inline-partner-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  padding-block: 35px 60px;
+  border-top: 1px solid var(--rule);
+}
+.inline-partner-body > div > p {
+  max-width: 470px;
+  margin-top: 24px;
+  font-size: 14px;
+}
+.inline-partner-body .inline-form-panel {
+  margin-top: 0;
+  border: 1px solid var(--rule);
+  padding: 32px;
+}
+.inline-packages {
+  margin-top: 30px;
+}
+.inline-packages article {
+  border-top: 1px solid var(--rule);
+  padding-block: 24px;
+}
+.toronto-home .inline-packages h3 {
+  font: 750 18px/1.4 var(--sans);
+  text-transform: none;
+  letter-spacing: 0;
+}
+.inline-packages p,
+.inline-packages li {
+  font-size: 13px;
+}
+.inline-packages p {
+  margin-top: 5px;
+}
+.footer-details {
+  margin-top: 40px;
+  border-top: 1px solid #45453f;
+}
+.footer-details .inline-disclosure {
+  border-bottom: 1px solid #45453f;
+}
+.footer-details summary:focus-visible {
+  outline-color: var(--paper);
+}
+.inline-contact {
+  padding-block: 15px 30px;
+  font-size: 13px;
+  display: flex;
+  gap: 20px 40px;
+  flex-wrap: wrap;
+}
+.inline-contact p {
+  flex-basis: 100%;
+  color: #aaa69d;
+}
+.inline-contact a {
+  border-bottom: 1px solid #73736b;
+  padding-block: 8px;
+}
+.inline-privacy {
+  padding-block: 20px 36px;
+  max-width: 720px;
+}
+.inline-privacy h3 {
+  font: 700 16px/1.5 var(--sans);
+  margin-bottom: 12px;
+}
+.inline-privacy p {
+  font-size: 13px;
+  margin-bottom: 26px;
+  color: #c5c2ba;
+}
+.inline-privacy a {
+  font-size: 13px;
+  text-decoration: underline;
+}
+@media (max-width: 760px) {
+  .event-disclosure {
+    padding-inline: 20px;
+  }
+  .inline-event-body,
+  .inline-partner-body,
+  .inline-lessons {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .inline-event-body {
+    padding-top: 22px;
+  }
+  .inline-speaker {
+    flex-direction: column;
+  }
+  .inline-story {
+    padding: 22px;
+  }
+  .inline-story > div {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .night-lesson[open] > summary {
+    grid-template-columns: 1fr;
+  }
+  .night-lesson[open] .night-lesson-image {
+    min-height: 0;
+    height: 180px;
+  }
+  .night-lesson[open] .night-lesson-text,
+  .inline-recap-body {
+    padding: 22px;
+  }
+  .inline-recap-lead,
+  .inline-recap-body blockquote {
+    font-size: 20px;
+  }
+  .inline-form-panel {
+    padding: 20px;
+  }
+  .night-invitation-dark .inline-form-panel {
+    margin-inline: -8px;
+  }
+  .partner-disclosure > summary {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 17px;
+  }
+  .partner-summary-copy {
+    display: block;
+    margin: 8px 0 0;
+    max-width: 260px;
+  }
+  .inline-partner-body .inline-form-panel {
+    padding: 22px;
+  }
+  .inline-contact {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .disclosure-symbol {
+    transition: none;
+  }
+}

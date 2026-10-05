@@ -9,7 +9,7 @@ export default function NotFound() {
         <span>Try the next one.</span>
       </h1>
       <p>That page doesn’t exist. There are better conversations this way.</p>
-      <ButtonLink href="/events">Find an event</ButtonLink>
+      <ButtonLink href="/#next-up">Find an event</ButtonLink>
     </section>
   );
 }

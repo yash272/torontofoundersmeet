@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { site } from "@/content/site";
 import { home } from "@/content/home";
-import { Eyebrow } from "./ui";
+import { ContactAndPrivacy } from "./community-sections";
+import { Eyebrow, SectionLink } from "./ui";
 import { SubmissionForm } from "./submission-form";
 export function Newsletter() {
   return (
@@ -36,16 +36,16 @@ export function Footer() {
           </div>
           <nav aria-label="Footer navigation">
             {[
-              ["Events", "/events"],
-              ["Speak", "/speak"],
-              ["Partners", "/partners"],
-              ["Membership", "/membership"],
-              ["Contact", "/contact"],
+              ["Events", "/#next-up"],
+              ["Speak", "/#speaker-application"],
+              ["Partners", "/#partners"],
+              ["Membership", "/#membership"],
+              ["Contact", "/#contact"],
             ].map(([label, href]) => (
-              <Link href={href} key={href}>
+              <a href={href} key={href}>
                 {label}
                 <span aria-hidden="true">↗</span>
-              </Link>
+              </a>
             ))}
           </nav>
           <div className="footer-socials">
@@ -69,6 +69,7 @@ export function Footer() {
             )}
           </div>
         </div>
+        <ContactAndPrivacy />
         <Link href="/" className="footer-wordmark">
           {site.name}
           <span className="footer-dot" aria-hidden="true">
@@ -80,7 +81,7 @@ export function Footer() {
             © {new Date().getFullYear()} {site.name}
           </span>
           <span>Est. {site.established}</span>
-          <Link href="/privacy">Privacy</Link>
+          <SectionLink section="privacy">Privacy</SectionLink>
         </div>
         {site.demo && (
           <p className="demo-footer">
@@ -93,3 +94,4 @@ export function Footer() {
     </footer>
   );
 }
+import Link from "next/link";

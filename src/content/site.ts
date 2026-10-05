@@ -11,11 +11,11 @@ export const site = {
   socials: { instagram: "", linkedin: "" },
 };
 export const navigation = [
-  { label: "Events", href: "/events" },
-  { label: "Past talks", href: "/past-talks" },
-  { label: "About", href: "/about" },
-  { label: "Membership", href: "/membership" },
-  { label: "Partners", href: "/partners" },
+  { label: "Events", href: "/#next-up" },
+  { label: "Past talks", href: "/#past-talks" },
+  { label: "About", href: "/#about" },
+  { label: "Membership", href: "/#membership" },
+  { label: "Partners", href: "/#partners" },
 ];
 export const membershipBenefits = [
   [
@@ -58,7 +58,7 @@ export const faqs = [
   {
     question: "How do events work?",
     answer:
-      "Arrive, grab a drink and settle in. The session runs for about 45 minutes, with plenty of time afterward for questions and conversation. Each event page has the exact schedule.",
+      "Arrive, grab a drink and settle in. The session runs for about 45 minutes, with plenty of time afterward for questions and conversation. Expand an event’s details for the exact schedule.",
   },
   {
     question: "Are events free?",
@@ -68,7 +68,7 @@ export const faqs = [
   {
     question: "How are attendees selected?",
     answer:
-      "We keep rooms small and look for a thoughtful mix of people, experiences and interests. Some events use an application; others offer open registration. The event page will tell you which.",
+      "We keep rooms small and look for a thoughtful mix of people, experiences and interests. Some events use an application; others offer open registration. Check the event details before signing up.",
   },
   {
     question: "Can I speak at an event?",
@@ -78,7 +78,7 @@ export const faqs = [
   {
     question: "Can my company partner with you?",
     answer:
-      "We work with a small number of thoughtful partners who want to support Toronto’s builders. Visit the partners page to start a conversation about the right fit.",
+      "We work with a small number of thoughtful partners who want to support Toronto’s builders. Open the partnership inquiry below to start a conversation about the right fit.",
   },
 ];
 // Intentionally empty: add real, permissioned quotes and verified community post URLs.
@@ -118,7 +118,7 @@ export const partnerPackages = [
     name: "Event partner",
     subtitle: "Help make a night happen.",
     benefits: [
-      "Presence on a dedicated event page",
+      "Presence alongside the event details",
       "A thoughtful acknowledgement on the night",
       "Representative attendance",
       "A post-event newsletter mention",

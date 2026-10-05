@@ -1,12 +1,11 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { SectionLink } from "./ui";
 import { useEffect, useRef, useState } from "react";
 import { navigation, site } from "@/content/site";
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const path = usePathname();
   const menuRef = useRef<HTMLElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -74,18 +73,14 @@ export function Header() {
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
           {navigation.map((item) => (
-            <Link
-              href={item.href}
-              key={item.href}
-              aria-current={path.startsWith(item.href) ? "page" : undefined}
-            >
+            <a href={item.href} key={item.href}>
               {item.label}
-            </Link>
+            </a>
           ))}
         </nav>
-        <Link href="/events" className="nav-cta">
+        <SectionLink section="next-up" className="nav-cta">
           Join the next one <span aria-hidden="true">↗</span>
-        </Link>
+        </SectionLink>
         <button
           className="menu-toggle"
           ref={toggleRef}
@@ -108,14 +103,17 @@ export function Header() {
       >
         <p className="eyebrow">Founders & operators, off the clock.</p>
         {navigation.map((item) => (
-          <Link href={item.href} key={item.href} onClick={() => setOpen(false)}>
+          <a href={item.href} key={item.href} onClick={() => setOpen(false)}>
             {item.label}
             <span aria-hidden="true">↗</span>
-          </Link>
+          </a>
         ))}
-        <Link href="/speak" onClick={() => setOpen(false)}>
+        <SectionLink
+          section="speaker-application"
+          onClick={() => setOpen(false)}
+        >
           Speak at an event<span aria-hidden="true">↗</span>
-        </Link>
+        </SectionLink>
         <p className="eyebrow mobile-location">Toronto, ON · Est. 2026</p>
       </nav>
     </header>

@@ -48,7 +48,7 @@ For a local Workers preview, run `npm run preview:cloudflare`. To build and depl
 - `src/app/home.css`: the Toronto poster layout, event ticket, photographic compositions and mobile layouts.
 - `src/components/evening-schedule.tsx`: the interactive evening programme, with keyboard-accessible tabs and reduced-motion support.
 
-Routes: `/`, `/events`, `/events/[slug]`, `/past-talks`, `/about`, `/speak`, `/membership`, `/partners`, `/contact`, `/privacy`. Past event URLs automatically render an editorial recap. Event times use `America/Toronto`; store full ISO timestamps with the correct offset for the date (EST or EDT).
+The website has one content page: `/`. Navigation scrolls to sections; event details, recaps, applications, contact options and privacy open inline. Previous page URLs permanently redirect to their matching homepage anchors. The production sitemap lists only `/`. Event times use `America/Toronto`; store full ISO timestamps with the correct offset for the date (EST or EDT).
 
 Set an event’s `rsvpUrl` to an HTTPS Luma/event URL to enable external RSVP. Empty URLs invite visitors to the functional event-news signup, never to a fabricated registration. Add approved organizer and speaker portraits when provided. Empty social URLs appear as coming-soon text, not broken links. Testimonials and community posts are intentionally empty until real, permissioned content is available.
 
@@ -67,7 +67,7 @@ Production should add a shared/edge rate limit appropriate to the host, deduplic
 1. Replace sample events and imagery with verified content. Add organizer profiles, approved portraits, real social URLs, and actual RSVP URLs. Prices and testimonials are deliberately not invented.
 2. Configure durable form delivery and test all four submission types.
 3. Set `NEXT_PUBLIC_SITE_URL` to the real HTTPS origin. Set `NEXT_PUBLIC_DEMO_MODE=false` only after content is approved. Demo mode defaults to noindex, a disallow-all robots file and an empty sitemap. Demo events never emit Event structured data or enter the sitemap.
-4. Finalize `/privacy` with the legal organizer, privacy contact, provider details and retention policy. The current page explicitly identifies itself as a working preview.
+4. Finalize `/#privacy` with the legal organizer, privacy contact, provider details and retention policy. The current page explicitly identifies itself as a working preview.
 5. Supply unsubscribe and consent handling in the newsletter provider before public collection. Deploy with HTTPS.
 
 Metadata, canonicals, Open Graph image, Twitter cards, favicon, robots and sitemap are included. Verified events emit Event JSON-LD. Capacity is not represented as an attendee count. Missing pricing does not become a free offer.

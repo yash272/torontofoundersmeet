@@ -1,5 +1,10 @@
 import { z } from "zod";
-const text = (min: number, max: number) => z.string().trim().min(min).max(max);
+const text = (min: number, max: number) =>
+  z
+    .string()
+    .trim()
+    .min(min, `Please enter at least ${min} characters.`)
+    .max(max, `Please use no more than ${max} characters.`);
 const common = {
   email: z.email().trim().toLowerCase().max(254),
   website: z.string().max(0).optional().default(""),
@@ -19,8 +24,14 @@ export const submissionSchema = z.discriminatedUnion("type", [
     type: z.literal("speaker"),
     name: text(2, 100),
     linkedin: z.url().refine((v) => {
-      const u = new URL(v);
-      return u.protocol === "https:" && /(^|\.)linkedin\.com$/.test(u.hostname);
+      try {
+        const u = new URL(v);
+        return (
+          u.protocol === "https:" && /(^|\.)linkedin\.com$/.test(u.hostname)
+        );
+      } catch {
+        return false;
+      }
     }, "Enter a valid LinkedIn profile URL."),
     company: text(2, 150),
     role: text(2, 100),

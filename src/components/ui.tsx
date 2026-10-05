@@ -1,6 +1,18 @@
-import Link from "next/link";
 import Image from "next/image";
-import type { ReactNode } from "react";
+import type { AnchorHTMLAttributes, ReactNode } from "react";
+export function SectionLink({
+  section,
+  children,
+  ...props
+}: Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> & {
+  section: string;
+}) {
+  return (
+    <a href={`/#${section}`} {...props}>
+      {children}
+    </a>
+  );
+}
 export function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return (
     <span aria-hidden="true" className="arrow">
@@ -22,14 +34,14 @@ export function ButtonLink({
   external?: boolean;
 }) {
   return (
-    <Link
+    <a
       className={`button button-${variant} ${className}`}
       href={href}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {children}
       <Arrow diagonal={external} />
-    </Link>
+    </a>
   );
 }
 export function TextLink({
@@ -42,10 +54,10 @@ export function TextLink({
   light?: boolean;
 }) {
   return (
-    <Link className={`text-link ${light ? "text-link-light" : ""}`} href={href}>
+    <a className={`text-link ${light ? "text-link-light" : ""}`} href={href}>
       {children}
       <Arrow />
-    </Link>
+    </a>
   );
 }
 export function Eyebrow({

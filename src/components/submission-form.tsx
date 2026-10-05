@@ -1,8 +1,8 @@
 "use client";
 import { useId, useRef, useState } from "react";
 import type { FormEvent } from "react";
-import Link from "next/link";
 import { formContent, submissionSchema, type FormType } from "@/lib/forms";
+import { SectionLink } from "./ui";
 type Field = {
   name: string;
   label: string;
@@ -262,7 +262,7 @@ export function SubmissionForm({
           {type === "newsletter"
             ? "Send me event news and useful lessons. Unsubscribe anytime."
             : "You may contact me about this request."}{" "}
-          <Link href="/privacy">Privacy</Link>
+          <SectionLink section="privacy">Privacy</SectionLink>
         </span>
       </label>
       {fieldErrors.consent && (

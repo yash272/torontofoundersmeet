@@ -88,6 +88,18 @@ test("speaker form requires a real LinkedIn host and meaningful answers", () => 
     linkedin: "https://www.linkedin.com/in/example",
   };
   assert.equal(submissionSchema.safeParse(sample).success, true);
+  for (const linkedin of [
+    "",
+    "not a URL",
+    "https://",
+    "http://linkedin.com/in/test",
+  ]) {
+    assert.equal(
+      submissionSchema.safeParse({ ...sample, linkedin }).success,
+      false,
+      `Invalid LinkedIn input must return validation errors without throwing: ${linkedin}`,
+    );
+  }
   assert.equal(
     submissionSchema.safeParse({
       ...sample,

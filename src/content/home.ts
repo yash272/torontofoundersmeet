@@ -47,7 +47,9 @@ export const home = {
     description:
       "Founders, operators, designers, engineers. If you’re building something here, come find your people.",
     neighbourhoods: ["Ossington", "Queen West", "King West", "The east end"],
-    action: "Meet the community",
+    action: "Why we started",
+    story:
+      "The best conversation at a Toronto startup event usually happens afterward, in the corner of the bar, when someone finally tells you what actually happened. We wanted to build the whole evening around that moment.",
   },
   archive: {
     label: "The conversations",
@@ -60,17 +62,23 @@ export const home = {
     title: "Take the mic.",
     description: "Teach one thing you learned the hard way.",
     action: "Apply to speak",
+    guidance:
+      "Teach one narrow lesson from your own experience. First customers, hiring, pricing, a failed launch. About 45 minutes, including questions. Slides optional; specifics essential.",
   },
   membership: {
     label: "Membership · Coming soon",
     title: "Be a regular.",
     description: "More workshops. Small dinners. Coworking with your people.",
     action: "Join the waitlist",
+    guidance:
+      "Membership is taking shape. Leave your details for pricing and first invitations when they’re ready. No payment or commitment.",
   },
   partners: {
     title: "Good company wanted.",
     description: "Help us bring Toronto’s builders together.",
     action: "Partner with us",
+    guidance:
+      "We work with a small number of companies that want to support Toronto’s builders. Partnership places are limited, and we shape each one around what the room needs.",
   },
   faq: { label: "A few things first", title: "Before you\ncome through." },
   newsletter: {

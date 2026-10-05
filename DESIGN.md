@@ -1,5 +1,7 @@
 # Founders & Pitchers — Toronto, after hours
 
+Single-page structure: retain the Toronto poster identity and short overview. Navigation scrolls to events, lessons, the story, membership and partners. Native disclosures reveal event details, recaps and application forms in place; they are keyboard operable and open from direct fragment links. The footer holds contact options and privacy information. Legacy routes redirect to the corresponding section, and the sitemap lists only the homepage. Avoid separate modal screens or simply stacking the old long pages end to end.
+
 One job: make a Toronto founder workshop followed by drinks immediately understandable, then help someone find the next event. Cut the vague slogans and long manifesto.
 
 Palette: paper #F3F0E8, ink #111111, night #0B0B0B, streetcar red #E33B2E, accessible red #B62D23, rule #CEC9BE.
